@@ -109,7 +109,7 @@ export const education = [
   {
     school: "New York University",
     degree: "Master of Science in Cybersecurity",
-    period: "2024 - 2026",
+    period: "2025 - Present",
     location: "New York, NY",
   },
   {
