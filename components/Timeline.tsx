@@ -32,11 +32,12 @@ export default function Timeline({
   title,
 }: {
   entries: Entry[]
-  title: string
+  /** Omitted when a tab already labels the section. */
+  title?: string
 }) {
   return (
     <section>
-      <h2 className="border-b border-line pb-5 text-2xl text-ink-1">{title}</h2>
+      {title && <h2 className="border-b border-line pb-5 text-2xl text-ink-1">{title}</h2>}
 
       <div className="relative mt-12">
         <span

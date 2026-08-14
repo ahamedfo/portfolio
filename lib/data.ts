@@ -36,7 +36,7 @@ export const experiences: Experience[] = [
     location: 'San Francisco, CA',
     status: 'current',
     description: [
-      'Built a seven-agent workplace assistant on watsonx Orchestrate spanning five simulated enterprise systems, owned end to end',
+      'Led enterprise AI engagements end to end across ten clients, from discovery and solution design through the build and the client demo',
       'Engineered an easements agent that retrieves documents over MCP and plots legal survey data onto county GIS parcels to within two inches',
       'Led a team benchmarking LLM cost and quality across Claude Code, GitHub Copilot, and IBM Bob',
     ],

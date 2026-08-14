@@ -49,6 +49,11 @@
     font-variant-numeric: tabular-nums;
   }
 
+  /* The only entrance animation on the site. Used when a tab panel appears. */
+  .settle {
+    animation: settle 0.2s ease-out both;
+  }
+
   .label {
     font-family: var(--font-plex-mono), ui-monospace, monospace;
     font-size: 0.6875rem;
@@ -58,6 +63,17 @@
     color: #736e62;
   }
 
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* The site has almost no motion. What little there is disappears on request. */
