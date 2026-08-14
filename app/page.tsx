@@ -20,10 +20,9 @@ export default function Home() {
         </p>
 
         <p className="mt-5 max-w-[54ch] text-[1.125rem] leading-[1.7] text-ink-2 sm:text-[1.25rem]">
-          I also research what happens to language models once they leave the benchmark: compressed
-          to fit the hardware, split across machines, and wired into systems that have to keep
-          running. I&rsquo;m finishing an MS in Cybersecurity at NYU, and I research agent security
-          at NYU&rsquo;s OSIRIS Lab and multi-agent systems at Queen Mary London.
+          I also do research on what happens when AI models get shrunk down to run on smaller
+          hardware, and what that costs in safety and reliability. That work is at NYU, where
+          I&rsquo;m finishing an MS in Cybersecurity, and at Queen Mary London.
         </p>
       </section>
 
