@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { Entry, Tone } from '@/lib/entries'
 
 /**
@@ -87,7 +88,13 @@ export default function Timeline({
                   </div>
 
                   <h3 className="mt-2.5 max-w-[30ch] text-xl leading-snug text-ink-1 lg:inline-block">
-                    {e.title}
+                    {e.href ? (
+                      <Link href={e.href} className="transition-colors hover:text-signal">
+                        {e.title}
+                      </Link>
+                    ) : (
+                      e.title
+                    )}
                   </h3>
 
                   {e.line && (
@@ -107,6 +114,17 @@ export default function Timeline({
                     <p className="mt-3 max-w-prose font-mono text-[0.8125rem] leading-[1.5] text-ink-3">
                       {e.where}
                     </p>
+                  )}
+
+                  {/* An explicit affordance. The title is a link too, but a
+                      linked heading alone does not read as clickable. */}
+                  {e.href && (
+                    <Link
+                      href={e.href}
+                      className="mt-4 inline-block border-b border-signal/40 pb-0.5 font-mono text-[0.8125rem] text-signal transition-colors hover:border-signal"
+                    >
+                      {e.hrefLabel ?? 'Read more'} &rarr;
+                    </Link>
                   )}
                 </div>
               </li>

@@ -5,6 +5,10 @@ export type Tone = 'ongoing' | 'starting' | 'finished' | 'paused' | 'stopped' | 
 
 export type Entry = {
   id: string
+  /** Set when the entry has a page of its own. Renders a visible link. */
+  href?: string
+  /** The link text, so the affordance says what is behind it. */
+  hrefLabel?: string
   /** ISO. Only present when a real date exists. */
   date?: string
   /** The metadata slot. A period for roles, a stage for work. */
@@ -44,11 +48,24 @@ export function getWorkEntries(): Entry[] {
   }))
 }
 
-/** Roles and labs, most recent first. */
+/** Roles that have a page of their own. Others render without a link. */
+const rolePages: Record<string, string | undefined> = {
+  IBM: '/experience/ibm',
+}
+
+/**
+ * Roles and labs, most recent first.
+ *
+ * IBM and Queen Mary both started in May 2026. The comparator returns 0 on a tie
+ * so the sort stays stable, which means ties fall back to the order in
+ * `experiences`. IBM is listed first there, so it leads.
+ */
 export function getExperienceEntries(): Entry[] {
   return experiences
     .map((e): Entry => ({
       id: `${e.company}-${e.start}`,
+      href: rolePages[e.company],
+      hrefLabel: 'See what I built',
       date: e.start,
       dateLabel: e.period,
       label: e.location,
@@ -57,5 +74,5 @@ export function getExperienceEntries(): Entry[] {
       line: e.role,
       summary: e.description[0],
     }))
-    .sort((a, b) => ((a.date ?? '') < (b.date ?? '') ? 1 : -1))
+    .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''))
 }

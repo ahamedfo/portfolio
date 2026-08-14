@@ -24,7 +24,7 @@ export default function Home() {
       <Timeline title="What I&rsquo;m working on" entries={work} />
 
       <div className="mt-28">
-        <Timeline title="Where I&rsquo;ve been" entries={experience} />
+        <Timeline title="Experience" entries={experience} />
       </div>
 
       <section className="mt-28 border-t border-line pt-10">

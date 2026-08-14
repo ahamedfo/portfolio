@@ -30,13 +30,13 @@ export type Experience = {
 export const experiences: Experience[] = [
   {
     company: 'IBM',
-    role: 'AI Engineer Intern, Client Engineering',
+    role: 'AI Engineer, Client Engineering',
     start: '2026-05-01',
     period: 'May 2026 - Present',
     location: 'San Francisco, CA',
     status: 'current',
     description: [
-      'Built a six-agent workplace assistant on watsonx Orchestrate with a governance control plane tracking per-agent latency, token usage, and failures',
+      'Built a seven-agent workplace assistant on watsonx Orchestrate spanning five simulated enterprise systems, owned end to end',
       'Engineered an easements agent that retrieves documents over MCP and plots legal survey data onto county GIS parcels to within two inches',
       'Led a team benchmarking LLM cost and quality across Claude Code, GitHub Copilot, and IBM Bob',
     ],
@@ -98,7 +98,7 @@ export const experiences: Experience[] = [
     location: 'New York, NY',
     status: 'past',
     description: [
-      'Built front-end features for a prescription-routing application serving millions of patients, at 80%+ test coverage',
+      'Built full-stack features for a prescription-routing application serving millions of patients, spanning UI, API integrations and monitoring, at 80%+ test coverage',
       'Presented walkthroughs and demos to executives covering front-end flows, API integrations, and product functionality',
       'Monitored customer experience with Splunk to identify drop-offs in vaccine scheduling',
     ],
