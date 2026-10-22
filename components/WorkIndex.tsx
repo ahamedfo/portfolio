@@ -119,7 +119,7 @@ export default function WorkIndex() {
       <div className="panel mt-12 p-6">
         <p className="eyebrow text-ink-subtle">What the shapes mean</p>
         <ul className="mt-4 grid gap-x-10 gap-y-3 sm:grid-cols-2">
-          {(['shipped', 'demo', 'research', 'held'] as const).map((s) => (
+          {(['shipped', 'demo', 'research'] as const).map((s) => (
             <li key={s} className="flex items-start gap-3">
               <span aria-hidden className={`${markClass('research', s)} mt-[5px]`} />
               <span className="text-body-sm">

@@ -30,12 +30,6 @@ export const HELD = '#CF5E53'
 export function markClass(line: LineId, status: EntryStatus): string {
   const base = 'block shrink-0 rounded-full transition-transform duration-200'
 
-  if (status === 'held') {
-    // Status overrides line hue here. A held claim is a state, and it should
-    // read the same whichever line it sits on.
-    return `${base} h-[11px] w-[11px] border-2 border-dashed border-chart-held bg-canvas`
-  }
-
   const ring = line === 'industry' ? 'border-chart-industry' : 'border-chart-research'
   const fill = line === 'industry' ? 'bg-chart-industry' : 'bg-chart-research'
 
@@ -54,12 +48,10 @@ export const statusLabel: Record<EntryStatus, string> = {
   shipped: 'Delivered',
   demo: 'Demo or pilot',
   research: 'In progress',
-  held: 'Not established',
 }
 
 export const statusMeaning: Record<EntryStatus, string> = {
   shipped: 'Built, delivered, and done.',
-  demo: 'A working demonstration or a client pilot. Not a production rollout.',
-  research: 'Running now. Scoping, drafted, or unfinished.',
-  held: 'Stopped, or a claim I will not make without the evidence for it.',
+  demo: 'A working demonstration or a client pilot.',
+  research: 'Running now.',
 }

@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Praise from '@/components/Praise'
-import Disclosure from '@/components/Disclosure'
 import { profile, skills, education, languages } from '@/content/profile'
 import { industryRoles, researchRoles, type Role } from '@/content/roles'
 import { hasPraise } from '@/content/praise'
@@ -258,34 +257,50 @@ export default function Home() {
       </section>
 
       <section className="mt-section">
-        <h2 className="text-headline text-ink">More</h2>
-        <div className="mt-6 max-w-prose">
-          <Disclosure summary="Shorter client engagements" hint={`${secondary.length} of them`}>
-            <div className="space-y-7">
-              {secondary.map((item) => (
-                <div key={item.id}>
-                  <p className="text-body text-ink">{item.title}</p>
-                  <p className="mt-1 font-mono text-[0.6875rem] text-ink-subtle">{item.client}</p>
-                  <p className="mt-2.5 max-w-prose text-body-sm leading-relaxed text-ink-muted">
-                    {item.established}
-                  </p>
-                  <p className="mt-3 max-w-prose border-l-2 border-chart-held/50 pl-4 text-body-sm leading-relaxed text-ink-muted">
-                    <span className="eyebrow mr-2 text-chart-held">Not established</span>
-                    {item.notEstablished}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Disclosure>
+        <h2 className="text-headline text-ink">Other client work</h2>
+        <p className="mt-3 max-w-prose text-body text-ink-muted">
+          Shorter engagements from the same year.
+        </p>
 
-          <Disclosure summary={`${award.category}, ${award.event}`} hint={award.date}>
-            <div className="max-w-prose space-y-2.5 text-body-sm leading-relaxed text-ink-muted">
-              <p>
-                Judged on the {award.criterion.toLowerCase()}. {award.shared}
-              </p>
-              <p className="text-ink-subtle">{award.note}</p>
+        <div className="mt-8">
+          {secondary.map((item) => (
+            <div
+              key={item.id}
+              className="grid gap-x-12 gap-y-3 border-t border-hairline py-8 first:border-t-0 first:pt-0 lg:grid-cols-[14rem_1fr]"
+            >
+              <p className="eyebrow text-ink-subtle">{item.client}</p>
+              <div>
+                <h3 className="max-w-[34ch] text-body text-ink">{item.title}</h3>
+                <p className="mt-2.5 max-w-prose text-body-sm leading-relaxed text-ink-muted">
+                  {item.summary}
+                </p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {item.tags.map((t) => (
+                    <li
+                      key={t}
+                      className="rounded-sm bg-surface-1 px-2 py-1 font-mono text-[0.6875rem] text-ink-subtle"
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </Disclosure>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-section">
+        <h2 className="text-headline text-ink">Recognition</h2>
+        <div className="panel mt-7 max-w-prose p-6">
+          <p className="text-body text-ink">{award.category}</p>
+          <p className="mt-1.5 text-body-sm text-ink-muted">{award.event}</p>
+          <p className="mt-3 font-mono text-[0.6875rem] tnum text-ink-subtle">
+            {award.date} &middot; {award.shared}
+          </p>
+          <p className="mt-4 max-w-prose text-body-sm leading-relaxed text-ink-muted">
+            Judged on the {award.criterion.toLowerCase()}.
+          </p>
         </div>
       </section>
 

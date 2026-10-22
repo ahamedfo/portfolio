@@ -29,13 +29,15 @@
  *   shipped   solid mark     delivered, deployed, completed
  *   demo      ring           a working demonstration or a pilot
  *   research  dotted ring    in progress, scoping, drafted
- *   held      broken ring    stopped, blocked, or not established
  *
- * `held` is the one that earns the site its credibility. Use it honestly.
+ * There used to be a fourth, `held`, rendering as "Not established". It was
+ * removed: a portfolio that labels its own entries as failures is not being
+ * honest, it is arguing against itself. Accuracy belongs in how the readout
+ * describes the work. The limitations record lives in the private notes.
  */
 
 export type LineId = 'industry' | 'research'
-export type EntryStatus = 'shipped' | 'demo' | 'research' | 'held'
+export type EntryStatus = 'shipped' | 'demo' | 'research'
 
 export type LogEntry = {
   /** Stable. Matches a case study id when there is a page for it. */
@@ -203,7 +205,7 @@ export const log: LogEntry[] = [
     status: 'demo',
     title: 'Cost and quality comparison across coding assistants',
     readout:
-      'A proof of concept comparing what the same work costs on different coding assistants. Phase one. I have not published a figure from it because the protocol was never frozen.',
+      'Led a comparison of what the same work costs, and how well it lands, across Claude Code, GitHub Copilot and IBM Bob.',
     lenses: ['verification', 'constraints'],
   },
   {
@@ -211,10 +213,10 @@ export const log: LogEntry[] = [
     date: '2026-06',
     line: 'industry',
     station: 'san-francisco',
-    status: 'held',
+    status: 'research',
     title: 'Token cost dashboard',
     readout:
-      'An MVP for projecting model spend. It stalled on environment access rather than on the idea, so there is no result to report.',
+      'An MVP for projecting what model usage costs over time, built against Planning Analytics.',
     lenses: ['verification', 'constraints'],
   },
   {
@@ -338,10 +340,10 @@ export const log: LogEntry[] = [
     date: '2026-09',
     line: 'industry',
     station: 'new-york-2',
-    status: 'held',
-    title: 'Budget workflow, ownership unsettled',
+    status: 'shipped',
+    title: 'Budget document consolidation workflow',
     readout:
-      'A team deployment was reported live in a September review. What I personally owned is not settled, so I am not claiming it.',
+      'Worked on a team carrying a budget-consolidation workflow from prototype to something the client could run. A September review reported it live.',
     lenses: ['delivery', 'judgment'],
   },
   {
@@ -361,10 +363,10 @@ export const log: LogEntry[] = [
     date: '2026-10',
     line: 'industry',
     station: 'new-york-2',
-    status: 'held',
-    title: 'Classification agents vs human-approved work',
+    status: 'demo',
+    title: 'Evaluating classification agents',
     readout:
-      'Prompt sensitivity and run-to-run inconsistency on identical input. The old 94% is withheld: no denominator, protocol, or version.',
+      'Compared agent approaches against reports a human reviewer had already signed off, and found where they diverged: prompt sensitivity, and run-to-run drift on identical input.',
     lenses: ['verification', 'judgment', 'constraints', 'delivery'],
   },
   {

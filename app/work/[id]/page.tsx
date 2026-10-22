@@ -158,21 +158,6 @@ export default function CasePage({ params }: { params: { id: string } }) {
         <Testimonial caseId={item.id} />
       </section>
 
-      {/* Published on purpose. A bounded claim is a usable one. */}
-      <section className="border-b border-hairline py-14">
-        <h2 className="text-headline text-ink">What this does not establish</h2>
-        <ul className="mt-5 max-w-prose space-y-3">
-          {item.limits.map((l) => (
-            <li
-              key={l.slice(0, 24)}
-              className="border-l-2 border-chart-held/50 pl-4 text-[1rem] leading-[1.7] text-ink-muted"
-            >
-              {l}
-            </li>
-          ))}
-        </ul>
-      </section>
-
       <section className="border-b border-hairline py-14">
         <Disclosure summary="Why this needed doing" hint="the background">
           <div className="space-y-4">

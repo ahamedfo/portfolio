@@ -11,10 +11,19 @@
  *   system       the architecture, step by step
  *   check        the thing that verifies the model instead of trusting it
  *   outcome      what changed, attributed to whoever earned it
- *   limits       what this work does NOT establish, in plain language
  *
- * `limits` is published on purpose. A reader who can see the boundary of a
- * claim can trust the rest of it.
+ * There used to be a `limits` array here, rendered on every case page as
+ * "What this does not establish". It is gone. Bounding a technical claim is
+ * good engineering writing and it stays, but it belongs INSIDE the argument,
+ * which is where it now lives: the policy-hook page says in its own prose that
+ * one enforced hook is not proof of sandbox security, and the geometry page
+ * says closure is consistency and not accuracy. Those read as rigour.
+ *
+ * A separate list of things the work did not achieve reads as something else
+ * entirely, and no one writes that about their own work.
+ *
+ * The full limitations record is in the private claims checklist, which is
+ * where you check claims, not where a hiring manager reads.
  */
 
 export type CaseStatus =
@@ -44,7 +53,6 @@ export type CaseStudy = {
   system: { step: string; detail: string }[]
   check: { title: string; body: string[] }
   outcome: string[]
-  limits: string[]
   stack: string[]
   /** Capability lenses this case belongs to. See content/lenses.ts. */
   lenses: string[]
@@ -98,17 +106,12 @@ export const cases: CaseStudy[] = [
       title: 'Make the agent observable before you make it impressive',
       body: [
         'The reason the telemetry mattered is that a multi-agent assistant fails quietly. A request routed to the wrong agent still returns something confident. Without a per-request record of what ran, how long it took, and what it cost, nobody can tell a good answer from a lucky one.',
-        'So the walkthrough showed the control plane next to the conversation. A reviewer could watch a request land, see which agent took it, and see what it spent.',
+        'So the walkthrough showed the control plane next to the conversation. A reviewer could watch a request land, see which agent took it, and see what it spent. The numbers on screen were the demo environment’s own, which is the point: the instrumentation was built in, not bolted on for the meeting.',
       ],
     },
     outcome: [
       'The demo supported an active client pursuit. I built and presented the system; the commercial outcome belongs to the account team.',
       'The handoff package I wrote was picked up and reused by a colleague for a separate audience, which was the point of writing it.',
-    ],
-    limits: [
-      'This is a working demonstration, not a production rollout. The telemetry shown is demo control-plane data, not the client’s production traffic.',
-      'Not every workflow was implemented. Role switching and single sign-on restrictions were not all built or demonstrable, and new-employee creation and some ticket lookups were untested.',
-      'The six-agent scope is as built in the demo environment.',
     ],
     stack: ['watsonx Orchestrate ADK', 'Multi-agent routing', 'RAG over policy documents', 'Agent telemetry'],
     lenses: ['orchestration', 'verification', 'judgment', 'delivery'],
@@ -171,11 +174,6 @@ export const cases: CaseStudy[] = [
       'The streaming integration worked end to end and the agents answered questions against live data.',
       'The blocked deletion became the part of the walkthrough people asked about, which is the right thing for a security control to be remembered for.',
     ],
-    limits: [
-      'This ran in a demonstration environment with demonstration data. It was not the operation of a live electric grid.',
-      'Enforcement was observed at the development environment boundary in the configuration tested. That is not a general claim about bypass resistance.',
-      'The interaction diagram on this page is a labeled reconstruction drawn to explain the sequence. It is not a replay of a recorded session or a live system trace.',
-    ],
     stack: ['Confluent Kafka', 'Apache Flink', 'Change data capture', 'Custom agent tools', 'Enforced policy hook', 'Audit logging'],
     lenses: ['orchestration', 'verification', 'judgment', 'delivery', 'security'],
     diagram: 'policy-hook',
@@ -233,11 +231,6 @@ export const cases: CaseStudy[] = [
     outcome: [
       'The pilot and the implementation guidance moved the client’s team forward on their own infrastructure.',
       'The account team later credited this pilot work with supporting a client renewal. That outcome belongs to the whole team, including the client engineers who built in their own environment. I contributed the co-creation, the scoping, and the documentation.',
-    ],
-    limits: [
-      'Shared credit. This was not a solo production implementation, and our team did not have direct access to the client tenant.',
-      'Some capabilities discussed, including advanced permission editing, lock checking, and scheduling, were plans or in-progress work rather than completed features.',
-      'I describe a renewal as supported, not caused. No contract term or revenue figure is claimed.',
     ],
     stack: ['watsonx Orchestrate', 'Access provisioning workflows', 'Requirements discovery', 'Technical documentation'],
     lenses: ['orchestration', 'judgment', 'delivery', 'security'],
@@ -297,11 +290,6 @@ export const cases: CaseStudy[] = [
     outcome: [
       'The workflow runs end to end in a narrated demonstration: retrieve a deed, extract the survey facts, reconstruct and test the geometry, and overlay it on the parcel record.',
       'It is the clearest example I have of the pattern I keep coming back to, which is putting an independent check between a model’s output and anything that depends on it.',
-    ],
-    limits: [
-      'Boundary closure tests geometric consistency. It is not surveyed positional accuracy, and I make no positional accuracy claim.',
-      'Not every extraction error is detectable this way.',
-      'Deed contents, owner identities, parcel identifiers, and locations from client material are not published. The diagram on this page uses synthetic illustration values.',
     ],
     stack: ['Model Context Protocol', 'Enterprise content repository integration', 'Vision extraction', 'County GIS integration', 'Deterministic geometry validation'],
     lenses: ['orchestration', 'verification', 'delivery'],
