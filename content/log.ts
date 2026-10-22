@@ -64,9 +64,9 @@ export const log: LogEntry[] = [
     line: 'research',
     station: 'buffalo',
     status: 'shipped',
-    title: 'LDA topic modelling over a news corpus',
+    title: 'Finding topics in news with LDA',
     readout:
-      'Pulled articles through the Media Cloud API and ran gensim LDA over them, with pyLDAvis to actually look at the topics. The code is public.',
+      'Pulled news articles through the Media Cloud API, ran gensim LDA, and used pyLDAvis to view the topics. The code is public.',
     href: 'https://github.com/ahamedfo/MediaCloudAPI',
     lenses: ['constraints'],
   },
@@ -76,9 +76,9 @@ export const log: LogEntry[] = [
     line: 'research',
     station: 'buffalo',
     status: 'shipped',
-    title: 'BERT sentiment classification across 28,000 posts',
+    title: 'BERT sentiment checks across 28,000 posts',
     readout:
-      'Fine-tuned BERT for sentiment on roughly 28,000 social posts, used to separate left and right leaning perspectives on the same topics.',
+      'Fine-tuned BERT on roughly 28,000 social posts to sort sentiment and separate left and right leaning views on the same topics.',
     lenses: ['constraints', 'verification'],
   },
   {
@@ -87,9 +87,9 @@ export const log: LogEntry[] = [
     line: 'research',
     station: 'buffalo',
     status: 'shipped',
-    title: 'Teaching assistant, three CS courses',
+    title: 'Teaching assistant for three CS courses',
     readout:
-      'CSE 116, 220 and 191 over nearly three years. Review hours, labs, grading Scala. Explaining a technical thing to someone who does not have it yet, every week, for three years.',
+      'Ran review hours and labs and graded Scala for CSE 116, 220 and 191 over nearly three years. Explained code to students still learning it, every week, for three years.',
     href: '/#teaching',
     lenses: ['delivery'],
   },
@@ -103,7 +103,7 @@ export const log: LogEntry[] = [
     status: 'shipped',
     title: 'Vaccination scheduling, test coverage 20% to 80%',
     readout:
-      'Shipping a user-facing scheduling flow under changing stakeholder and accessibility requirements, then carrying the pager for it.',
+      'Shipped a scheduling flow as stakeholder and access needs changed, then took on-call shifts to keep it running.',
     lenses: ['verification', 'delivery'],
   },
   {
@@ -113,7 +113,7 @@ export const log: LogEntry[] = [
     station: 'new-york-1',
     status: 'shipped',
     title: 'Security+',
-    readout: 'CompTIA Security+. The foundations, formally, while working on a product people depended on.',
+    readout: 'Covered security basics through CompTIA certification while working on a product people relied on.',
     lenses: ['security'],
   },
   {
@@ -123,7 +123,7 @@ export const log: LogEntry[] = [
     station: 'new-york-1',
     status: 'shipped',
     title: 'CISSP',
-    readout: 'Certified Information Systems Security Professional. Five months after Security+, alongside the MS at NYU.',
+    readout: 'Five months after Security+, earned the Certified Information Systems Security Professional credential while studying for the MS at NYU.',
     lenses: ['security'],
   },
   {
@@ -132,9 +132,9 @@ export const log: LogEntry[] = [
     line: 'research',
     station: 'new-york-1',
     status: 'shipped',
-    title: 'How ransomware groups actually operate',
+    title: 'How ransomware groups make money',
     readout:
-      'Affiliate structures, monetization, and the attribution problem. Research and threat intelligence, not incident response.',
+      'Researched how groups work with affiliates, make money, and hide who is behind an attack. The work focused on threat intelligence.',
     href: '/research#ransomware-intelligence',
     lenses: ['security'],
   },
@@ -146,7 +146,7 @@ export const log: LogEntry[] = [
     status: 'shipped',
     title: 'Security training game at AWS re:Invent',
     readout:
-      'GenAI threat detection and cloud risk as an interactive game. The conference drew 40,000+; roughly 400 played, which is my own estimate.',
+      'Turned GenAI threat detection and cloud risk into a game people could play. The conference drew 40,000+; roughly 400 played, based on my own estimate.',
     lenses: ['security', 'delivery'],
   },
   {
@@ -155,9 +155,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'new-york-1',
     status: 'shipped',
-    title: 'Certification pathways for a 2,200+ partner ecosystem',
+    title: 'Certification paths for a 2,200+ partner ecosystem',
     readout:
-      'Enablement framework and technical content audit. That is the size of the ecosystem it served, not a count of people I trained.',
+      'Mapped out training paths and reviewed technical content for the partner network. The count refers to the network’s size, not how many people I trained.',
     lenses: ['delivery', 'security'],
   },
 
@@ -168,9 +168,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'san-francisco',
     status: 'demo',
-    title: 'Six-agent workplace assistant, control plane in view',
+    title: 'Six-agent workplace assistant with live system stats',
     readout:
-      'HR, procurement, and IT behind one entry point, built so the room could watch latency, tokens, and failures while it ran.',
+      'Put HR, procurement, and IT behind one entry point. People in the room could watch latency, token use, and failures as it ran.',
     href: '/work/workplace-assistant',
     lenses: ['orchestration', 'verification', 'judgment', 'delivery'],
   },
@@ -180,9 +180,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'san-francisco',
     status: 'shipped',
-    title: 'Best Business Case, team award',
+    title: 'Team award for Best Business Case',
     readout:
-      'A category award at an intern and co-op event, judged on the ROI story. Shared with two colleagues. The document does not name the winning project.',
+      'Shared the award with two colleagues at an intern and co-op event, judged on the ROI case. The award document leaves the winning project unnamed.',
     lenses: ['delivery'],
   },
 
@@ -192,9 +192,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'san-francisco',
     status: 'shipped',
-    title: 'Reusable skill packs for the client engineering team',
+    title: 'Reusable skill packs for client engineers',
     readout:
-      'Packaged setup, safety rules and working modes for platforms the team kept re-learning, so an engineer starting an engagement did not start from nothing.',
+      'Packaged setup steps, safety rules, and ways to work with platforms the team kept learning again. Engineers could use those packs when starting an engagement.',
     lenses: ['delivery', 'orchestration'],
   },
   {
@@ -203,9 +203,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'san-francisco',
     status: 'demo',
-    title: 'Cost and quality comparison across coding assistants',
+    title: 'Comparing coding assistant costs and code quality',
     readout:
-      'Led a comparison of what the same work costs, and how well it lands, across Claude Code, GitHub Copilot and IBM Bob.',
+      'Led a comparison of Claude Code, GitHub Copilot and IBM Bob on the same work, checking what each cost and how well each did.',
     lenses: ['verification', 'constraints'],
   },
   {
@@ -214,9 +214,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'san-francisco',
     status: 'research',
-    title: 'Token cost dashboard',
+    title: 'Tracking token costs over time',
     readout:
-      'An MVP for projecting what model usage costs over time, built against Planning Analytics.',
+      'Built an MVP with Planning Analytics to project model usage costs over time.',
     lenses: ['verification', 'constraints'],
   },
   {
@@ -225,9 +225,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'san-francisco',
     status: 'shipped',
-    title: 'Confluent and Kafka lab, built from scratch',
+    title: 'Confluent and Kafka lab built from scratch',
     readout:
-      'Learned a streaming platform I had no background in and turned it into a hands-on lab the rest of the team could run. This is where the policy-hook work started.',
+      'Learned the streaming platform from scratch and built a hands-on lab the team could run. The policy-hook work started here.',
     lenses: ['delivery', 'orchestration'],
   },
   {
@@ -236,9 +236,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'san-francisco',
     status: 'demo',
-    title: 'Intake-to-demo pipeline tool',
+    title: 'Drafting workshop plans during discovery calls',
     readout:
-      'Every engagement turns a discovery call into a workshop agenda by hand. This drafts it during the call, then pulls the whiteboard output back out afterwards.',
+      'The tool drafts a workshop agenda during a discovery call, then pulls out the whiteboard output after the workshop.',
     lenses: ['delivery', 'orchestration'],
   },
   {
@@ -247,9 +247,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'san-francisco',
     status: 'demo',
-    title: 'Sub-agent orchestrator',
+    title: 'A coordinator that assigns work to sub-agents',
     readout:
-      'A coordinator handing work to sub-agents, demoed internally. The same coordination question the Queen Mary research measures, on a much smaller scale.',
+      'Demoed a coordinator handing tasks to sub-agents inside the team. It explores the same question about sharing work as the Queen Mary research, at a much smaller scale.',
     lenses: ['orchestration'],
   },
 
@@ -259,9 +259,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'san-francisco',
     status: 'demo',
-    title: 'PromptROI, a prompt-coaching agent',
+    title: 'PromptROI helps people write better prompts',
     readout:
-      'Built for an internal hackathon. It coaches a prompt rather than answering it. Not connected to the team award that summer; that document does not name a project.',
+      'Built an agent for an internal hackathon that coaches people on their prompts. It is separate from the team award that summer, whose document leaves the project unnamed.',
     lenses: ['orchestration', 'delivery'],
   },
   {
@@ -270,9 +270,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'san-francisco',
     status: 'demo',
-    title: 'LangGraph multi-agent quality control',
+    title: 'LangGraph agents that check work',
     readout:
-      'A quality-control system on watsonx Orchestrate, with agents checking work rather than only producing it.',
+      'Built a quality-control system on watsonx Orchestrate where agents check the work other agents produce.',
     lenses: ['orchestration', 'verification'],
   },
   {
@@ -281,9 +281,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'san-francisco',
     status: 'shipped',
-    title: 'Hands-on labs for non-specialists',
+    title: 'Hands-on agent labs for non-specialists',
     readout:
-      'Wrote labs that let people who do not build agents for a living get an agentic workflow running themselves. The teaching job, again, with a different syllabus.',
+      'Wrote labs that helped people who do not build agents for a living run an agent workflow themselves.',
     lenses: ['delivery'],
   },
 
@@ -294,9 +294,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'new-york-2',
     status: 'demo',
-    title: 'A policy hook that said no',
+    title: 'A policy hook that blocked a delete',
     readout:
-      'An agent tried to delete something. The user confirmed. The hook blocked it anyway and logged both the attempt and the refusal.',
+      'An agent tried to delete something, and the user confirmed, but the hook blocked it and logged the attempt and refusal. That check alone does not prove sandbox security.',
     href: '/work/streaming-policy-demo',
     lenses: ['orchestration', 'verification', 'judgment', 'delivery', 'security'],
   },
@@ -306,9 +306,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'new-york-2',
     status: 'demo',
-    title: 'Checking a vision model against geometry',
+    title: 'Checking scanned deeds with geometry',
     readout:
-      'Scanned deeds to mapped parcels through two custom MCP tools, with a closure test the model has no influence over.',
+      'Used two custom MCP tools to turn scanned deeds into mapped parcels. A closure test outside the model’s control checks whether the geometry is consistent, not whether the parcel is in the right place.',
     href: '/work/document-gis-validation',
     lenses: ['orchestration', 'verification', 'delivery'],
   },
@@ -318,9 +318,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'new-york-2',
     status: 'demo',
-    title: 'An access pilot we could not log into',
+    title: 'Access pilot built with client engineers',
     readout:
-      'Co-created with the client engineers because our team had no access to the environment it had to run in. Supported a renewal the whole team earned.',
+      'Co-created the pilot with client engineers, who could reach the environment it needed to run in. Supported a renewal the whole team earned.',
     href: '/work/access-workflow',
     lenses: ['orchestration', 'judgment', 'delivery', 'security'],
   },
@@ -330,9 +330,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'new-york-2',
     status: 'demo',
-    title: 'Standards review an educator can check',
+    title: 'Checking teaching materials against state standards',
     readout:
-      'Compares changing state standards against teaching materials. Feedback was positive. No measured time saving and no rollout.',
+      'The tool compares teaching materials with changing state standards so an educator can check the findings. Feedback was positive.',
     lenses: ['judgment', 'delivery', 'verification'],
   },
   {
@@ -341,9 +341,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'new-york-2',
     status: 'shipped',
-    title: 'Budget document consolidation workflow',
+    title: 'Combining budget documents into a working flow',
     readout:
-      'Worked on a team carrying a budget-consolidation workflow from prototype to something the client could run. A September review reported it live.',
+      'Worked on a team taking a budget workflow from prototype to something the client could run. A September review reported it live.',
     lenses: ['delivery', 'judgment'],
   },
   {
@@ -354,7 +354,7 @@ export const log: LogEntry[] = [
     status: 'research',
     title: 'Quantization across four agent architectures',
     readout:
-      '87 configurations on the same 1,000 questions. Keeping the planner precise beat making it bigger. Manuscript drafted, not submitted.',
+      'Compared 87 configurations on the same 1,000 questions. Keeping the planner precise beat making it bigger; the manuscript is drafted.',
     href: '/research',
     lenses: ['orchestration', 'verification', 'constraints'],
   },
@@ -364,9 +364,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'new-york-2',
     status: 'demo',
-    title: 'Evaluating classification agents',
+    title: 'Checking classification agents against human-reviewed reports',
     readout:
-      'Compared agent approaches against reports a human reviewer had already signed off, and found where they diverged: prompt sensitivity, and run-to-run drift on identical input.',
+      'Compared agent approaches with reports a human reviewer had signed off. Found that results changed with the prompt and across runs on the same input.',
     lenses: ['verification', 'judgment', 'constraints', 'delivery'],
   },
   {
@@ -377,7 +377,7 @@ export const log: LogEntry[] = [
     status: 'demo',
     title: 'Coding agent on a 40-year-old codebase',
     readout:
-      'Live IBM i and RPG walkthrough: capture, diagnose, repair, compile, test, document. Tooling failed partway and I worked around it live.',
+      'Walked through IBM i and RPG live: capture, diagnose, repair, compile, test, and document. When the tools failed partway through, I worked around it live.',
     lenses: ['delivery', 'security', 'orchestration'],
   },
   {
@@ -386,9 +386,9 @@ export const log: LogEntry[] = [
     line: 'industry',
     station: 'new-york-2',
     status: 'demo',
-    title: 'Office hours on agent adoption',
+    title: 'Office hours on using coding agents',
     readout:
-      'Development access, guardrails, and fitting a coding agent to a team that already has review practices. Participation, not authorship.',
+      'Took part in office hours on developer access, guardrails, and fitting a coding agent into a team’s review process.',
     lenses: ['delivery', 'security'],
   },
   {
@@ -397,9 +397,9 @@ export const log: LogEntry[] = [
     line: 'research',
     station: 'new-york-2',
     status: 'research',
-    title: 'Human-in-the-loop network monitoring',
+    title: 'Placing human checks in network monitoring',
     readout:
-      'Where the person belongs in an agent-driven monitoring loop, on a Zeek and Suricata stack. Scoping. No harness, no result.',
+      'Scoped where a person should check an agent’s work in a network monitoring loop built on Zeek and Suricata.',
     href: '/research#osiris-monitoring',
     lenses: ['judgment', 'security'],
   },

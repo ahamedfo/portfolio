@@ -21,6 +21,83 @@ export type ResearchProject = {
   lenses: string[]
 }
 
+/**
+ * The research hub.
+ *
+ * `/research` used to be one page carrying the entire quantization study:
+ * design table, five findings with their bounds, the method notes, the other
+ * research, and the earlier experiments. It was a wall. Ahamed's read was
+ * "way way way too dense", which was right.
+ *
+ * It is now an index. Each area is a panel with a title, where it happens, its
+ * status and one line. Click one and you get that area on its own page. The
+ * density did not go away, it went somewhere a reader chose to go.
+ */
+export type ResearchArea = {
+  id: string
+  title: string
+  /** One line. What the question actually is. */
+  line: string
+  affiliation: string
+  period: string
+  status: string
+  /** A number worth putting on the panel, when there is one. */
+  stat?: { value: string; label: string }
+  href: string
+}
+
+export const researchAreas: ResearchArea[] = [
+  {
+    id: 'quantization',
+    title: 'What compression does to a team of agents',
+    line: 'Everyone evaluates agents at full precision. Everyone deploys them compressed. I measured the gap.',
+    affiliation: 'Queen Mary University of London',
+    period: 'May 2026 to present',
+    status: 'Manuscript drafted',
+    stat: { value: '87', label: 'configurations' },
+    href: '/research/quantization',
+  },
+  {
+    id: 'osiris-monitoring',
+    title: 'Where a person belongs in network monitoring',
+    line: 'An agent watching a network still needs a human somewhere. Working out where.',
+    affiliation: 'NYU Osiris Lab',
+    period: 'October 2026 to present',
+    status: 'Scoping',
+    href: '/research/osiris-monitoring',
+  },
+  {
+    id: 'ransomware-intelligence',
+    title: 'How ransomware groups actually operate',
+    line: 'Affiliate structures, how the money moves, and why attribution is so hard.',
+    affiliation: 'New York University',
+    period: 'January 2025 to January 2026',
+    status: 'Completed',
+    href: '/research/ransomware-intelligence',
+  },
+  {
+    id: 'nlp-buffalo',
+    title: 'Reading tone and topic out of text',
+    line: 'BERT for sentiment, LDA for topics. Where measuring a model before trusting it started.',
+    affiliation: 'University at Buffalo',
+    period: 'May 2020 to January 2022',
+    status: 'Completed',
+    stat: { value: '28,000', label: 'posts' },
+    href: '/research/nlp-buffalo',
+  },
+  {
+    id: 'earlier',
+    title: 'Experiments that stopped',
+    line: 'Two nulls and one killed by its own stopping rule. Kept because a result that did not work is still a result.',
+    affiliation: 'Side projects',
+    period: '2025 to 2026',
+    status: '5 experiments',
+    href: '/research/earlier',
+  },
+]
+
+export const areaById = (id: string) => researchAreas.find((a) => a.id === id)
+
 export const quantizationStudy = {
   id: 'quantized-agents',
   title: 'What does compressing a model do to a team of agents?',
@@ -98,6 +175,20 @@ export const quantizationStudy = {
 
   kuber:
     'This sits inside KUber, a UKRI-EPSRC funded project on multi-agent orchestration and knowledge sharing involving IBM Research, Nokia Bell Labs, and Samsung AI. My work on it is the quantization and architecture experiments.',
+}
+
+export const nlpBuffalo = {
+  id: 'nlp-buffalo',
+  title: 'Reading tone and topic out of text',
+  affiliation: 'University at Buffalo',
+  period: 'May 2020 to January 2022',
+  status: 'Completed',
+  body: [
+    'Two pieces of undergraduate research, both about getting a machine to say something useful about a pile of text.',
+    'The first fine-tuned BERT for sentiment across roughly 28,000 social posts, and used it to separate left and right leaning views on the same topics. The second pulled news articles through the Media Cloud API and ran gensim LDA over them to find what the coverage was actually about, with pyLDAvis to look at the result rather than trust it.',
+    'The topic-modelling code is public. It is the oldest thing on this site and the first time I checked a model instead of believing it.',
+  ],
+  repo: 'https://github.com/ahamedfo/MediaCloudAPI',
 }
 
 export const otherResearch: ResearchProject[] = [

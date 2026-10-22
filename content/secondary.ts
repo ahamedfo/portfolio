@@ -36,42 +36,42 @@ export type SecondaryItem = {
 export const secondary: SecondaryItem[] = [
   {
     id: 'curriculum-review',
-    title: 'Standards review an educator can check line by line',
+    title: 'A standards review teachers can check',
     client: 'State government, career and technical education',
     summary:
-      'Built and presented a demo that compares changing state standards against existing teaching materials and produces output a teacher can actually review, rather than a verdict they have to trust. The client’s feedback in the session was positive and colleagues asked to circulate it internally.',
+      'Built and presented a demo that compares changes in state standards with existing teaching materials. Teachers can check the results line by line. The client gave positive feedback in the session, and colleagues asked to share it internally.',
     tags: ['Document comparison', 'Human review', 'Client demo'],
   },
   {
     id: 'hr-classification',
-    title: 'Evaluating classification agents against human-approved work',
+    title: 'Checking agent reports against human-approved work',
     client: 'State government, human resources',
     summary:
-      'Compared agent approaches for classifying position descriptions against reports a human reviewer had already signed off. Investigated prompt sensitivity, run-to-run consistency on identical input, and the tradeoff between classifying correctly and producing a report someone wants to read. Surfaced specific mismatches and regression risks across successive reviews.',
+      'Compared how agents classify position descriptions with reports a human reviewer had approved. Checked how prompts changed the results, whether the same input gave the same answer, and how accuracy lined up with clear writing. Found specific mismatches and risks that later changes could bring back earlier errors.',
     tags: ['ReAct', 'Evaluation', 'Failure analysis'],
   },
   {
     id: 'legacy-modernization',
-    title: 'A live coding-agent walkthrough on a 40-year-old codebase',
+    title: 'A coding agent on a 40-year-old codebase',
     client: 'Hospitality and gaming',
     summary:
-      'Delivered a live demonstration of an AI coding agent working on IBM i and RPG: capture the issue, diagnose it, repair it, compile, test, document the change. The tooling failed partway through and I worked around it on the call. It turned into a real technical conversation about QA versus production source access, change management, and onboarding.',
+      'Gave a live demo of an AI coding agent on IBM i and RPG, from recording an issue through a fix, compile, test, and change notes. When the tools failed partway through, I worked around it on the call. We talked about access to QA and production source code, how teams manage changes, and how new staff learn the code.',
     tags: ['IBM i and RPG', 'Live demo', 'Change management'],
   },
   {
     id: 'budget-workflow',
-    title: 'Budget document consolidation workflow',
+    title: 'Bringing budget documents into a shared workflow',
     client: 'State government, health and human services',
     summary:
-      'Worked on a team building a workflow that consolidates budget documents and makes the prioritisation editable, carrying it from prototype toward something the client could run themselves. A September review reported the client had verified the system and that it was live.',
+      'Worked on a team building a workflow to bring budget documents together and let users change their priorities. Helped move it from a prototype toward something the client could run themselves. A September review reported that the client had checked the system and it was live.',
     tags: ['Document consolidation', 'Team delivery'],
   },
   {
     id: 'developer-enablement',
-    title: 'Office hours with a client team adopting coding agents',
+    title: 'Office hours for teams using coding agents',
     client: 'Public sector retirement system',
     summary:
-      'Recurring customer office hours on agent adoption: development access, guardrails, and how a coding agent fits a team that already has review and change-management practices. A colleague’s write-up of that work thanked me for the contribution.',
+      'Held recurring office hours with a client team adopting coding agents. We covered development access, guardrails, and how agents fit with the team’s code reviews and change rules. A colleague thanked me for the contribution in a write-up.',
     tags: ['Developer enablement', 'Guardrails', 'Client-facing'],
   },
 ]

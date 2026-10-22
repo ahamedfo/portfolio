@@ -48,8 +48,8 @@ export const stations: Station[] = [
     city: 'Buffalo',
     start: '2019-08',
     end: '2023-05',
-    note: 'Computer science at Buffalo, and the first research work.',
-    claim: 'Where measuring a model before trusting it started.',
+    note: 'Studied computer science at Buffalo and started my first research work.',
+    claim: 'Started measuring models before trusting their results',
   },
   {
     id: 'new-york-1',
@@ -57,8 +57,8 @@ export const stations: Station[] = [
     city: 'New York',
     start: '2023-06',
     end: '2026-04',
-    note: 'CVS, then SentinelOne, then the cybersecurity MS at NYU.',
-    claim: 'Shipping software people depended on, then learning how it gets attacked.',
+    note: 'Worked at CVS, then SentinelOne, then studied cybersecurity at NYU.',
+    claim: 'Shipped software people used, then studied how attackers break in',
   },
   {
     id: 'san-francisco',
@@ -66,8 +66,8 @@ export const stations: Station[] = [
     city: 'San Francisco',
     start: '2026-05',
     end: '2026-08',
-    note: 'The IBM summer. Where the agent work started.',
-    claim: 'Six agents, and a room watching the telemetry.',
+    note: 'Spent the summer at IBM and started working on agents.',
+    claim: 'Six agents running while a room watched the telemetry',
   },
   {
     id: 'new-york-2',
@@ -75,8 +75,8 @@ export const stations: Station[] = [
     city: 'New York',
     start: '2026-08',
     end: null,
-    note: 'Back. IBM Client Engineering, NYU Osiris, and the research.',
-    claim: 'Agent workflows, and the checks that catch them.',
+    note: 'Back in New York for IBM Client Engineering, NYU Osiris, and research.',
+    claim: 'Building agent workflows and checks to catch their errors',
   },
 ]
 

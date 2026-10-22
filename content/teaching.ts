@@ -40,7 +40,7 @@ export const teaching: TeachingRole[] = [
     period: 'September 2019 to May 2022',
     start: '2019-09',
     detail:
-      'Weekly review hours for first and second years, lab supervision, and grading Scala assignments. Nearly three years on the same course, which is long enough to watch the same concept fail to land in the same place every semester and get better at it.',
+      'Held weekly review hours for first and second years, supervised labs, and graded Scala assignments. Spent nearly three years on the course. Seeing where students got stuck each semester helped me find better ways to explain the same ideas.',
     topics: [
       'Choosing a data structure',
       'Encapsulation, polymorphism, inheritance',
@@ -63,7 +63,7 @@ export const teaching: TeachingRole[] = [
     period: 'August 2020 to May 2021',
     start: '2020-08',
     detail:
-      'Weekly review hours on the parts of a system most people never see directly. The course where you stop treating the machine as an abstraction.',
+      'Held weekly review hours on the parts of a system students rarely see directly. Helped them connect the code they wrote to what the machine was doing.',
     topics: [
       'Compiler and linker invocation',
       'Memory management',
@@ -83,7 +83,7 @@ export const teaching: TeachingRole[] = [
     period: 'January 2020 to May 2020',
     start: '2020-01',
     detail:
-      'Review hours and grading, plus reworking the weekly lesson plan for students who were not getting it the first way round.',
+      'Held review hours and graded student work. Reworked weekly lesson plans when students needed a different way into the topic.',
     topics: [
       'Logic and proofs',
       'Sets, functions, relations',
@@ -102,7 +102,7 @@ export const teaching: TeachingRole[] = [
     period: 'June 2019 to August 2019',
     start: '2019-06',
     detail:
-      'Course assistant and advisor for 15 to 17 year olds, on intermediate and advanced writing. The first teaching job, and the one that was not about code.',
+      'Worked as a course assistant and advisor for 15 to 17 year olds in intermediate and advanced writing. This was my first teaching job, helping students with words instead of code.',
     topics: [],
   },
 ]
@@ -121,7 +121,7 @@ export const earlier = [
     org: 'Cisco',
     role: 'Extern',
     period: 'May 2020 to August 2020',
-    detail: 'A mentorship programme. Career advice and interview practice, not engineering work.',
+    detail: 'Took part in a mentorship programme focused on career advice. Practised interviews and learned about paths into the field.',
   },
   {
     id: 'ccny-hplp',
@@ -129,6 +129,6 @@ export const earlier = [
     role: 'High Performance Learning Program',
     period: 'May 2013 to September 2013',
     detail:
-      'A STEM apprenticeship, aged fourteen. Coding and 3D printing, and the first time I watched people do this for a living.',
+      'Took part in a STEM apprenticeship at fourteen, with coding and 3D printing. It was my first chance to see people do this work for a living.',
   },
 ]

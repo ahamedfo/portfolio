@@ -15,8 +15,8 @@ export default function Work() {
         <p className="eyebrow text-ink-subtle">Work</p>
         <h1 className="mt-4 text-display-md text-ink">What I have built</h1>
         <p className="mt-5 text-subhead text-ink-muted">
-          Client work, research and credentials, newest first. A few are marked not
-          established, which means I did the work but cannot back the result up yet.
+          Client work, research and credentials, newest first. Filter it by what the work has
+          in common.
         </p>
       </header>
 
