@@ -19,14 +19,15 @@ const mono = IBM_Plex_Mono({
   display: 'swap',
 })
 
+const DESCRIPTION =
+  'Applied AI engineer at IBM Client Engineering. I build agent workflows for enterprise clients and put checks around them: enforced tool-use policy, deterministic validation, and evaluation against human-approved work. Multi-agent and quantization research at Queen Mary University of London and NYU.'
+
 export const metadata: Metadata = {
-  title: 'Ahamed Fofana',
-  description:
-    'Research on language model agents under real deployment constraints: compressed weights, distributed knowledge, limited compute.',
+  title: 'Ahamed Fofana, Applied AI Engineer',
+  description: DESCRIPTION,
   openGraph: {
-    title: 'Ahamed Fofana',
-    description:
-      'Research on language model agents under real deployment constraints: compressed weights, distributed knowledge, limited compute.',
+    title: 'Ahamed Fofana, Applied AI Engineer',
+    description: DESCRIPTION,
     type: 'website',
   },
 }
@@ -37,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen bg-paper font-serif text-ink-2 antialiased">
         <div className="mx-auto max-w-frame px-6">
           <Nav />
-          <main>{children}</main>
+          <main id="main">{children}</main>
           <Footer />
         </div>
       </body>

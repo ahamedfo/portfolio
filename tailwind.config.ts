@@ -19,16 +19,22 @@ const config: Config = {
       colors: {
         paper: '#F3F0E8',
         raised: '#EAE6DB',
-        line: '#DDD7C9',
-        'line-strong': '#C9C2B1',
+        line: '#DDD7C9', // hairline rules, decorative
+        'line-strong': '#C9C2B1', // heavier rules, still decorative
+        // The visible boundary of an interactive control. 3.47:1 on paper,
+        // which clears the 3:1 that WCAG asks of a UI component edge.
+        'line-control': '#8C8371',
         ink: {
           1: '#1A1917',
           2: '#55514A',
-          3: '#736E62',
+          // 4.94:1 on paper, 4.51:1 on raised. ink-3 carries small metadata
+          // text, which is never "large text", so it has to clear AA on the
+          // darker of the two surfaces, not just on paper.
+          3: '#6C675C',
         },
-        hi: '#35639C', // full precision, complete
-        lo: '#A8492F', // compressed, stopped
-        signal: '#8F6317', // a reading, running
+        hi: '#35639C', // 5.40:1 on paper. a check that passed, a pilot
+        lo: '#A8492F', // 5.04:1 on paper. a block, a bound, a stop
+        signal: '#895F16', // 4.97:1 on paper, 4.54:1 on raised. links, status
         control: '#B6B0A2',
       },
       fontFamily: {
