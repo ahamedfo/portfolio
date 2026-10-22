@@ -68,7 +68,7 @@ export default function Research() {
         <p className="mt-9 max-w-prose text-[1.0625rem] leading-[1.75] text-ink-muted">{s.kuber}</p>
       </section>
 
-      <section className="border-b border-hairline py-14">
+      <section id="quantized-agents" className="scroll-mt-32 border-b border-hairline py-14">
         <h2 className="text-headline text-ink">Findings</h2>
         <p className="mt-3 max-w-prose text-[1.0625rem] leading-[1.75] text-ink-muted">
           Five results, each with the boundary of what it covers. The boundary is not a hedge. It
@@ -118,7 +118,11 @@ export default function Research() {
         <h2 className="text-headline text-ink">Other research</h2>
         <dl className="mt-8">
           {otherResearch.map((r) => (
-            <div key={r.id} className="border-t border-hairline py-7 first:border-t-0 first:pt-0">
+            <div
+              key={r.id}
+              id={r.id}
+              className="scroll-mt-32 border-t border-hairline py-7 first:border-t-0 first:pt-0"
+            >
               <dt>
                 <span className="eyebrow">
                   {r.affiliation} · {r.period} · {r.status}

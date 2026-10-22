@@ -8,7 +8,13 @@ top of it.
 All the words live in `content/`, all the layout lives in `components/` and `app/`.
 Adding work means editing `content/`. It should never mean touching a component.
 
-## The home page is a journey, not a document
+## The landing page is the resume. The journey is one click in.
+
+`/` is roles, education and credentials. Two things sit where they belong rather than in
+a generic section: the quantization study links directly under the Queen Mary
+appointment, and praise sits under the role it is about.
+
+## /journey is a journey, not a document
 
 Six full-height screens: an opening, one per place Ahamed lived and worked, and a closing
 screen at the end of the line. The route pins to the top as a rail; scrolling travels it.
@@ -82,11 +88,26 @@ app/
 
 | Route | What it is |
 |---|---|
-| `/` | the journey. opening, four places, closing |
+| `/` | roles, education, credentials, praise. the resume version |
+| `/journey` | opening, four places, closing |
 | `/work` | all entries, newest first, filterable by capability |
 | `/work/[id]` | the four case studies |
-| `/research` | the quantization study |
-| `/about` | the resume version, plus additional client work and recognition |
+| `/research` | the quantization study, with anchors for the other research |
+
+## Praise
+
+`content/praise.ts`. Read the header comment before adding anything.
+
+The rule in one line: **internal messages get published when their author says yes, with
+their name on them, or not at all.** They do not get published as redacted screenshots.
+Redacting the name, the avatar, the client and the channel removes the only reason an
+image was more persuasive than a quote, and leaves something nobody can verify.
+
+A LinkedIn recommendation is a different thing: the author published it, their name is on
+it, and the card links back so a reader can confirm. Those are live.
+
+Quotes are verbatim, including punctuation this project otherwise bans. Changing someone
+else's words to match a house style is falsifying a quote.
 
 ## Rules this content follows
 

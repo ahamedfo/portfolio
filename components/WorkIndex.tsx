@@ -69,8 +69,8 @@ export default function WorkIndex() {
           </>
         ) : (
           <>
-            Everything I have put down, newest first. Pick a capability to narrow it.{' '}
-            <span className="font-mono text-caption tnum">{log.length} entries</span>
+            Filter by what the work has in common.{' '}
+            <span className="font-mono text-caption tnum">{log.length} items</span>
           </>
         )}
       </p>

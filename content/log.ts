@@ -62,10 +62,22 @@ export const log: LogEntry[] = [
     line: 'research',
     station: 'buffalo',
     status: 'shipped',
-    title: 'First research work, NLP at Buffalo',
+    title: 'LDA topic modelling over a news corpus',
     readout:
-      'Sentiment classification and topic modelling as an undergraduate research assistant. Where measuring a model before trusting it started.',
+      'Pulled articles through the Media Cloud API and ran gensim LDA over them, with pyLDAvis to actually look at the topics. The code is public.',
+    href: 'https://github.com/ahamedfo/MediaCloudAPI',
     lenses: ['constraints'],
+  },
+  {
+    id: 'ub-bert',
+    date: '2021-09',
+    line: 'research',
+    station: 'buffalo',
+    status: 'shipped',
+    title: 'BERT sentiment classification across 28,000 posts',
+    readout:
+      'Fine-tuned BERT for sentiment on roughly 28,000 social posts, and compared it against traditional machine learning on the same task.',
+    lenses: ['constraints', 'verification'],
   },
 
   // ── New York, first stint ──────────────────────────────────────────────────
@@ -109,7 +121,7 @@ export const log: LogEntry[] = [
     title: 'How ransomware groups actually operate',
     readout:
       'Affiliate structures, monetization, and the attribution problem. Research and threat intelligence, not incident response.',
-    href: '/research',
+    href: '/research#ransomware-intelligence',
     lenses: ['security'],
   },
   {
@@ -158,6 +170,73 @@ export const log: LogEntry[] = [
     readout:
       'A category award at an intern and co-op event, judged on the ROI story. Shared with two colleagues. The document does not name the winning project.',
     lenses: ['delivery'],
+  },
+
+  {
+    id: 'skill-packs',
+    date: '2026-06',
+    line: 'industry',
+    station: 'san-francisco',
+    status: 'shipped',
+    title: 'Reusable skill packs for the client engineering team',
+    readout:
+      'Packaged setup, safety rules and working modes for platforms the team kept re-learning, so an engineer starting an engagement did not start from nothing.',
+    lenses: ['delivery', 'orchestration'],
+  },
+  {
+    id: 'coding-assistant-benchmark',
+    date: '2026-06',
+    line: 'industry',
+    station: 'san-francisco',
+    status: 'demo',
+    title: 'Cost and quality comparison across coding assistants',
+    readout:
+      'A proof of concept comparing what the same work costs on different coding assistants. Phase one. I have not published a figure from it because the protocol was never frozen.',
+    lenses: ['verification', 'constraints'],
+  },
+  {
+    id: 'token-cost-dashboard',
+    date: '2026-06',
+    line: 'industry',
+    station: 'san-francisco',
+    status: 'held',
+    title: 'Token cost dashboard',
+    readout:
+      'An MVP for projecting model spend. It stalled on environment access rather than on the idea, so there is no result to report.',
+    lenses: ['verification', 'constraints'],
+  },
+  {
+    id: 'confluent-lab',
+    date: '2026-07',
+    line: 'industry',
+    station: 'san-francisco',
+    status: 'shipped',
+    title: 'Confluent and Kafka lab, built from scratch',
+    readout:
+      'Learned a streaming platform I had no background in and turned it into a hands-on lab the rest of the team could run. This is where the policy-hook work started.',
+    lenses: ['delivery', 'orchestration'],
+  },
+  {
+    id: 'intake-pipeline',
+    date: '2026-07',
+    line: 'industry',
+    station: 'san-francisco',
+    status: 'demo',
+    title: 'Intake-to-demo pipeline tool',
+    readout:
+      'Every engagement turns a discovery call into a workshop agenda by hand. This drafts it during the call, then pulls the whiteboard output back out afterwards.',
+    lenses: ['delivery', 'orchestration'],
+  },
+  {
+    id: 'subagent-orchestrator',
+    date: '2026-07',
+    line: 'industry',
+    station: 'san-francisco',
+    status: 'demo',
+    title: 'Sub-agent orchestrator',
+    readout:
+      'A coordinator handing work to sub-agents, demoed internally. The same coordination question the Queen Mary research measures, on a much smaller scale.',
+    lenses: ['orchestration'],
   },
 
   // ── New York, back again ───────────────────────────────────────────────────
@@ -273,7 +352,7 @@ export const log: LogEntry[] = [
     title: 'Human-in-the-loop network monitoring',
     readout:
       'Where the person belongs in an agent-driven monitoring loop, on a Zeek and Suricata stack. Scoping. No harness, no result.',
-    href: '/research',
+    href: '/research#osiris-monitoring',
     lenses: ['judgment', 'security'],
   },
 ]

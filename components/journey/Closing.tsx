@@ -12,24 +12,24 @@ import { cases } from '@/content/cases'
  */
 const destinations = [
   {
-    href: '/work',
-    label: 'Everything, in one list',
-    detail: `All ${log.length} entries, filterable.`,
-  },
-  {
     href: `/work/${cases[1].id}`,
-    label: 'The one I would show first',
-    detail: 'An agent tried to delete. The hook refused.',
+    label: 'The policy hook that said no',
+    detail: 'An agent tried to delete something. The user said yes. It was blocked anyway.',
   },
   {
     href: '/research',
-    label: 'The research',
-    detail: '87 configurations, and the bound on each finding.',
+    label: 'Quantization across four agent architectures',
+    detail: '87 configurations on the same 1,000 questions, and what each result does not cover.',
   },
   {
-    href: '/about',
+    href: '/work',
+    label: 'All the work',
+    detail: `${log.length - 1} pieces, filterable by what they have in common.`,
+  },
+  {
+    href: '/',
     label: 'Roles, education, credentials',
-    detail: 'The resume version.',
+    detail: 'Dates, titles and the rest of the resume.',
   },
 ]
 
@@ -38,7 +38,7 @@ export default function Closing() {
     <section className="flex min-h-[calc(100vh-7.5rem)] flex-col justify-center py-20">
       <div className="mx-auto w-full max-w-frame px-6">
         <p className="eyebrow text-ink-subtle">End of the line</p>
-        <h2 className="mt-4 max-w-[20ch] text-display-md text-ink">Where to next.</h2>
+        <h2 className="mt-4 max-w-[20ch] text-display-md text-ink">Where to next</h2>
 
         <div className="mt-12 grid gap-3 sm:grid-cols-2">
           {destinations.map((d) => (

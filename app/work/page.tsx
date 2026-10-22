@@ -12,11 +12,11 @@ export default function Work() {
   return (
     <div className="mx-auto max-w-frame px-6 py-20">
       <header className="max-w-prose">
-        <p className="eyebrow text-ink-subtle">{log.length} entries</p>
-        <h1 className="mt-4 text-display-md text-ink">Everything, in one list.</h1>
+        <p className="eyebrow text-ink-subtle">Work</p>
+        <h1 className="mt-4 text-display-md text-ink">What I have built</h1>
         <p className="mt-5 text-subhead text-ink-muted">
-          The same work the journey walks through, without the walking. Two of these are
-          marked not established, which is deliberate.
+          Client work, research and credentials, newest first. A few are marked not
+          established, which means I did the work but cannot back the result up yet.
         </p>
       </header>
 

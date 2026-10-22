@@ -8,9 +8,9 @@ import { profile } from '@/content/profile'
  * being chopped by an opaque band. The skip link is first in the DOM.
  */
 const links = [
+  ['/journey', 'Journey'],
   ['/work', 'Work'],
   ['/research', 'Research'],
-  ['/about', 'About'],
 ]
 
 export default function Nav() {
