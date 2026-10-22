@@ -1,26 +1,31 @@
+import type { EntryStatus } from '@/content/log'
+import { markClass, statusLabel } from './route/marks'
+
 /**
- * Status in ordinary product language.
+ * Status, in the same vocabulary the route uses.
  *
- * A reader should be able to tell a demonstration from a pilot from a shipped
- * deployment without decoding a colour. The word does that work; the colour
- * only reinforces it.
+ * The word does the work. The mark beside it repeats the shape from the
+ * diagram, so a reader who learned "ring means demo" on the route reads it the
+ * same way here. Colour is never the only signal, on either surface.
  */
-const tone: Record<string, string> = {
-  'Working demo': 'text-signal border-signal/35',
-  'Client demo': 'text-signal border-signal/35',
-  'Client pilot': 'text-hi border-hi/40',
-  'Team deployment': 'text-hi border-hi/40',
-  'Research in progress': 'text-ink-3 border-line-strong',
+const fromCaseStatus: Record<string, EntryStatus> = {
+  'Working demo': 'demo',
+  'Client demo': 'demo',
+  'Client pilot': 'demo',
+  'Team deployment': 'shipped',
+  'Research in progress': 'research',
 }
 
 export default function StatusTag({ status }: { status: string }) {
+  const kind = fromCaseStatus[status] ?? 'research'
   return (
-    <span
-      className={`inline-block border px-2 py-[0.1875rem] font-mono text-[0.6875rem] uppercase tracking-label ${
-        tone[status] ?? 'text-ink-3 border-line-strong'
-      }`}
-    >
-      {status}
+    <span className="inline-flex items-center gap-2 border border-rule px-2.5 py-1">
+      <span aria-hidden className={markClass('research', kind)} />
+      <span className="font-mono text-[0.6875rem] uppercase tracking-label text-ink-2">
+        {status}
+      </span>
     </span>
   )
 }
+
+export { statusLabel }

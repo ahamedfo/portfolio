@@ -27,7 +27,7 @@ export default function Research() {
         &larr; Home
       </Link>
 
-      <header className="mt-9 border-b border-line pb-10">
+      <header className="mt-9 border-b border-rule pb-10">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <StatusTag status="Research in progress" />
           <span className="font-mono text-[0.8125rem] text-ink-3">
@@ -35,7 +35,7 @@ export default function Research() {
           </span>
         </div>
 
-        <h1 className="mt-6 max-w-[34ch] text-[2rem] leading-[1.15] tracking-[-0.01em] text-ink-1 sm:text-[2.75rem]">
+        <h1 className="display-wide mt-6 max-w-[30ch] text-[2rem] leading-[1.08] text-ink-1 sm:text-[2.75rem]">
           {s.title}
         </h1>
 
@@ -52,7 +52,7 @@ export default function Research() {
         </p>
       </header>
 
-      <section className="border-b border-line py-11">
+      <section className="border-b border-rule py-11">
         <h2 className="text-[1.5rem] text-ink-1">Design</h2>
         <dl className="mt-7 grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
           {s.design.map((d) => (
@@ -68,27 +68,25 @@ export default function Research() {
         <p className="mt-9 max-w-prose text-[1.0625rem] leading-[1.75] text-ink-2">{s.kuber}</p>
       </section>
 
-      <section className="border-b border-line py-11">
+      <section className="border-b border-rule py-11">
         <h2 className="text-[1.5rem] text-ink-1">Findings</h2>
         <p className="mt-3 max-w-prose text-[1.0625rem] leading-[1.75] text-ink-2">
           Five results, each with the boundary of what it covers. The boundary is not a hedge. It
           is the difference between a finding and a slogan.
         </p>
 
-        <div className="mt-10 space-y-11">
-          {s.findings.map((f, i) => (
-            <div key={f.claim.slice(0, 24)}>
-              <div className="flex items-baseline gap-4">
-                <span className="font-mono text-[0.8125rem] tnum text-ink-3">
-                  {String(i + 1).padStart(2, '0')}
+        {/* No 01 / 02 / 03 here. These five are a list, not a sequence: nothing
+            about the second follows from the first, and numbering them would
+            claim an order the evidence does not have. */}
+        <div className="mt-10 space-y-10">
+          {s.findings.map((f) => (
+            <div key={f.claim.slice(0, 24)} className="border-t border-rule pt-8 first:border-t-0 first:pt-0">
+              <h3 className="max-w-[44ch] text-[1.25rem] leading-snug text-ink-1">{f.claim}</h3>
+              <p className="mt-4 max-w-prose text-[1rem] leading-[1.75] text-ink-2">{f.detail}</p>
+              <p className="mt-4 max-w-prose border-l-2 border-held/50 pl-4 text-[0.9375rem] leading-[1.7] text-ink-2">
+                <span className="mr-2 font-mono text-[0.6875rem] uppercase leading-4 tracking-label text-held">
+                  Bound
                 </span>
-                <h3 className="max-w-[44ch] text-[1.25rem] leading-snug text-ink-1">{f.claim}</h3>
-              </div>
-              <p className="mt-4 max-w-prose pl-8 text-[1rem] leading-[1.75] text-ink-2">
-                {f.detail}
-              </p>
-              <p className="ml-8 mt-4 max-w-prose border-l-2 border-lo/50 pl-4 text-[0.9375rem] leading-[1.7] text-ink-2">
-                <span className="mr-2 font-mono text-[0.6875rem] uppercase leading-4 tracking-label text-lo">Bound</span>
                 {f.bound}
               </p>
             </div>
@@ -96,7 +94,7 @@ export default function Research() {
         </div>
       </section>
 
-      <section className="border-b border-line py-11">
+      <section className="border-b border-rule py-11">
         <h2 className="text-[1.5rem] text-ink-1">How it was kept honest</h2>
         <div className="mt-6">
           <Disclosure summary="Method and statistical boundaries" hint="5 points" open>
@@ -116,11 +114,11 @@ export default function Research() {
         </div>
       </section>
 
-      <section className="border-b border-line py-11">
+      <section className="border-b border-rule py-11">
         <h2 className="text-[1.5rem] text-ink-1">Other research</h2>
         <dl className="mt-8">
           {otherResearch.map((r) => (
-            <div key={r.id} className="border-t border-line py-7 first:border-t-0 first:pt-0">
+            <div key={r.id} className="border-t border-rule py-7 first:border-t-0 first:pt-0">
               <dt>
                 <span className="label">
                   {r.affiliation} · {r.period} · {r.status}
@@ -146,7 +144,7 @@ export default function Research() {
         </p>
         <dl className="mt-8">
           {sideProjects.map((p) => (
-            <div key={p.id} className="border-t border-line py-6 first:border-t-0 first:pt-0">
+            <div key={p.id} className="border-t border-rule py-6 first:border-t-0 first:pt-0">
               <dt className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
                 <span className="label">{p.stage}</span>
                 <p className="max-w-[46ch] text-[1.0625rem] leading-snug text-ink-1">{p.title}</p>

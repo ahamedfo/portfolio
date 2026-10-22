@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: dark;
   }
 
   html {
@@ -14,13 +14,13 @@
   }
 
   body {
-    background-color: #f3f0e8;
-    color: #55514a;
+    background-color: #0b1220;
+    color: #a8b4c8;
   }
 
   ::selection {
-    background: rgba(137, 95, 22, 0.18);
-    color: #1a1917;
+    background: rgba(4, 153, 155, 0.3);
+    color: #e8edf5;
   }
 
   ::-webkit-scrollbar {
@@ -28,39 +28,151 @@
     height: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: #f3f0e8;
+    background: #0b1220;
   }
   ::-webkit-scrollbar-thumb {
-    background: #ddd7c9;
+    background: #1e2a40;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #c9c2b1;
+    background: #2a3a55;
   }
 
+  /* On a dark field a thin outline disappears. Two pixels of pure white is the
+     one place besides the live route marker where `now` is allowed. */
   :focus-visible {
-    outline: 2px solid #895f16;
+    outline: 2px solid #ffffff;
     outline-offset: 3px;
+  }
+
+  /* Headings wear the display face. The width axis is what separates it from
+     the body face, so it is pulled wide here and nowhere else. Tracking comes
+     back in as width goes up, otherwise wide type reads loose. */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display), system-ui, sans-serif;
+    font-stretch: 108%;
+    letter-spacing: -0.021em;
+  }
+
+  /* Martian Mono sits wide by default, which is right for a station code and
+     too loud for a line of navigation. Pulled in across the board; the few
+     places that want it wide ask for it. */
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--font-mono), ui-monospace, monospace;
   }
 }
 
 @layer utilities {
-  /* Every numeric readout uses this so measured values stay aligned */
+  /* Every measured value uses this so digits stay in column. */
   .tnum {
     font-variant-numeric: tabular-nums;
   }
 
   .label {
-    font-family: var(--font-plex-mono), ui-monospace, monospace;
+    font-family: var(--font-mono), ui-monospace, monospace;
     font-size: 0.6875rem;
     line-height: 1rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #6c675c;
+    font-stretch: 85%;
   }
 
+  /* The default for mono running as UI text rather than as a data readout. */
+  .font-mono {
+    font-stretch: 85%;
+  }
+
+  /* The one display treatment that is allowed to run really wide: the page's
+     single largest line. */
+  .display-wide {
+    font-stretch: 118%;
+    letter-spacing: -0.028em;
+  }
+
+  /* The field itself. A dot grid at 1.3:1 against the background, which is
+     deliberately below the UI-contrast floor: it is texture, not a boundary,
+     and nothing on the page depends on seeing it. */
+  .field {
+    background-image: radial-gradient(circle, #1e2a40 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-position: center;
+  }
 }
 
-/* The site has almost no motion. What little there is disappears on request. */
+/*
+ * Motion. One sequence, once, then it stops.
+ *
+ * The lines draw in, then each mark rides out from its line's terminus and
+ * settles above or below the line at its own position. That is the whole idea
+ * made literal: something travelled the route and set this down here.
+ *
+ * `left` and `top` are animated rather than `transform`, because the marks are
+ * positioned as percentages of a container whose width is not known at render,
+ * and a percentage translate would resolve against the mark's own 22px box
+ * instead. Seventeen small elements moving once for three seconds does not need
+ * compositor-only properties.
+ *
+ * Fill mode is `both`, so during its delay a mark holds its start state, and
+ * after it finishes it holds its end state. The end state is also what the
+ * inline style says, so a mark that never animates is already in the right
+ * place.
+ */
+@keyframes ride {
+  0% {
+    left: var(--from-left);
+    top: var(--from-top);
+    opacity: 0;
+  }
+  14% {
+    opacity: 1;
+  }
+  100% {
+    left: var(--to-left);
+    top: var(--to-top);
+    opacity: 1;
+  }
+}
+
+.route-ride {
+  animation: ride 1100ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--ride-delay, 0ms) both;
+}
+
+/* Paths carry pathLength="1", so the dash maths is the same for every line
+   whatever its real length. */
+@keyframes draw-line {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.route-draw {
+  animation: draw-line 900ms ease-out var(--draw-delay, 0ms) both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.route-fade {
+  animation: fade-in 600ms ease-out var(--fade-delay, 0ms) both;
+}
+
+/*
+ * All of the above is optional. With reduced motion requested the route is
+ * already drawn and every agent is already at its station on first paint.
+ */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -69,5 +181,15 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+
+    /* The delays have to go too, not just the durations.
+       The route staggers its marks with delays up to about two seconds, and
+       `animation-fill-mode: both` holds the FROM state for the whole delay.
+       Zeroing only the duration therefore leaves someone who asked for no
+       motion staring at an empty chart that then pops into place, which is
+       worse than the animation they opted out of. With the delay zeroed, every
+       mark resolves to its end state on the first frame. */
+    animation-delay: 0ms !important;
+    transition-delay: 0ms !important;
   }
 }

@@ -34,7 +34,7 @@ export default function Testimonial({ caseId }: { caseId: string }) {
       {items.map((t) => (
         <figure
           key={t.id}
-          className={`border-l-2 pl-6 ${t.kind === 'fixture' ? 'border-dashed border-line-strong' : 'border-signal/40'}`}
+          className={`border-l-2 pl-6 ${t.kind === 'fixture' ? 'border-dashed border-rule' : 'border-research/40'}`}
         >
           <span className="label">{kindLabel[t.kind]}</span>
           <blockquote className="mt-3 max-w-prose text-[1.0625rem] italic leading-[1.7] text-ink-1">

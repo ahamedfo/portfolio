@@ -1,53 +1,87 @@
 import type { Config } from 'tailwindcss'
 
 /**
- * Warm paper, serif content, monospace metadata.
+ * Deep field.
  *
- * The split is the whole idea: everything you READ is serif on paper,
- * everything MEASURED is monospace and tabular, and every figure is a dark
- * plate set into the page. Status colour is the only colour on the page and
- * it always means the same thing.
+ * The page is a dark navy field with a route drawn across it. Everything you
+ * READ is ink on that field; everything PLOTTED is a mark with a meaning.
+ *
+ * Colour rules, and why they are rules:
+ *
+ *   Two categorical hues, `industry` and `research`, identify the two lines of
+ *   the route. They were snapped into the dark-mode OKLCH lightness band and
+ *   run through the palette validator: lightness, chroma floor, protan/deutan
+ *   separation, normal-vision floor, and contrast against the field all pass.
+ *   Do not hand-edit them. If a third line is ever needed, re-run the validator
+ *   rather than inventing a hue.
+ *
+ *   `held` is a STATUS colour, not a third series. It marks something stopped,
+ *   blocked, or not established, and it never means "the next category".
+ *
+ *   Status is never carried by colour alone. On the route, hue says which line
+ *   a mark rides and SHAPE says its state: solid for shipped, ring for a demo
+ *   or pilot, broken ring for stopped. That keeps the diagram readable in
+ *   grayscale and under colour-vision deficiency.
+ *
+ *   Text never wears a series colour. Values, labels, and legends stay in ink;
+ *   a coloured mark beside them carries the identity.
+ *
+ *   `now` is pure white and is spent in exactly one place: the live end of the
+ *   route. Using it anywhere else costs it its meaning.
+ *
+ * Contrast ratios below are against `void` / `plate`, the two surfaces text can
+ * land on. Small metadata type is never "large text", so ink has to clear AA on
+ * the lighter of the two surfaces, not just the darker one.
  */
 const config: Config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './content/**/*.{md,mdx}',
+    './content/**/*.{js,ts,tsx,md,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        paper: '#F3F0E8',
-        raised: '#EAE6DB',
-        line: '#DDD7C9', // hairline rules, decorative
-        'line-strong': '#C9C2B1', // heavier rules, still decorative
-        // The visible boundary of an interactive control. 3.47:1 on paper,
-        // which clears the 3:1 that WCAG asks of a UI component edge.
-        'line-control': '#8C8371',
+        void: '#0B1220', // the field
+        plate: '#131C2E', // raised surfaces: records, figures, the readout
+        grid: '#1E2A40', // the dot grid. decorative, deliberately below 3:1
+        rule: '#2A3A55', // hairline rules. decorative
+        edge: '#64708A', // the visible boundary of an interactive control. 3.43:1 on plate
+
         ink: {
-          1: '#1A1917',
-          2: '#55514A',
-          // 4.94:1 on paper, 4.51:1 on raised. ink-3 carries small metadata
-          // text, which is never "large text", so it has to clear AA on the
-          // darker of the two surfaces, not just on paper.
-          3: '#6C675C',
+          1: '#E8EDF5', // 15.93:1 void / 14.48:1 plate
+          2: '#A8B4C8', // 8.94:1 / 8.13:1
+          3: '#7A89A3', // 5.29:1 / 4.81:1
         },
-        hi: '#35639C', // 5.40:1 on paper. a check that passed, a pilot
-        lo: '#A8492F', // 5.04:1 on paper. a block, a bound, a stop
-        signal: '#895F16', // 4.97:1 on paper, 4.54:1 on raised. links, status
-        control: '#B6B0A2',
+
+        // Categorical. Validated as a set; see the note above.
+        industry: '#B47819', // 5.03:1 / 4.57:1
+        research: '#04999B', // 5.38:1 / 4.89:1
+
+        // Status. Mark only, never text: it is 4.36:1 on plate, under AA for body copy.
+        held: '#CF5E53',
+
+        now: '#FFFFFF', // spent once, on the live end of the route
       },
+
       fontFamily: {
-        serif: ['var(--font-source-serif)', 'Georgia', 'serif'],
-        mono: ['var(--font-plex-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
+
       maxWidth: {
-        prose: '66ch',
-        frame: '1120px',
+        prose: '62ch',
+        frame: '1180px',
       },
+
       letterSpacing: {
-        label: '0.12em',
+        // Display runs tight; labels run wide. Width is what separates the two
+        // sans faces, so it has to be deliberate in both directions.
+        display: '-0.02em',
+        label: '0.14em',
       },
+
       fontSize: {
         label: ['0.6875rem', { lineHeight: '1rem' }],
       },

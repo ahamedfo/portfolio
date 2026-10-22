@@ -26,7 +26,7 @@ function RoleList({ items }: { items: Role[] }) {
   return (
     <dl>
       {items.map((r) => (
-        <div key={r.id} className="border-t border-line py-8 first:border-t-0 first:pt-0">
+        <div key={r.id} className="border-t border-rule py-8 first:border-t-0 first:pt-0">
           <dt className="grid gap-x-8 gap-y-2 lg:grid-cols-[14rem_1fr]">
             <div>
               <p className="font-mono text-[0.8125rem] tnum text-ink-3">{r.period}</p>
@@ -53,7 +53,7 @@ function RoleList({ items }: { items: Role[] }) {
                   <Link
                     key={id}
                     href={`/work/${id}`}
-                    className="border-b border-signal/40 pb-0.5 font-mono text-[0.8125rem] text-signal transition-colors hover:border-signal"
+                    className="border-b border-research/40 pb-0.5 font-mono text-[0.8125rem] text-research transition-colors hover:border-research"
                   >
                     {byId(id)?.shortTitle ?? id}
                   </Link>
@@ -74,8 +74,8 @@ export default function About() {
         &larr; Home
       </Link>
 
-      <header className="mt-9 border-b border-line pb-11">
-        <h1 className="text-[2rem] leading-[1.15] tracking-[-0.01em] text-ink-1 sm:text-[2.75rem]">
+      <header className="mt-9 border-b border-rule pb-11">
+        <h1 className="display-wide text-[2rem] leading-[1.08] text-ink-1 sm:text-[2.75rem]">
           {profile.name}
         </h1>
         <p className="mt-3 font-mono text-[0.8125rem] text-ink-3">{profile.location}</p>
@@ -88,14 +88,14 @@ export default function About() {
         </div>
       </header>
 
-      <section className="border-b border-line py-11">
+      <section className="border-b border-rule py-11">
         <h2 className="text-[1.5rem] text-ink-1">Experience</h2>
         <div className="mt-8">
           <RoleList items={industryRoles} />
         </div>
       </section>
 
-      <section className="border-b border-line py-11">
+      <section className="border-b border-rule py-11">
         <h2 className="text-[1.5rem] text-ink-1">Research positions</h2>
         <p className="mt-3 max-w-prose text-[0.9375rem] leading-[1.7] text-ink-3">
           Listed separately from the roles above because they overlap with them. An overlapping
@@ -106,17 +106,17 @@ export default function About() {
         </div>
         <Link
           href="/research"
-          className="mt-8 inline-block border-b border-signal/40 pb-0.5 font-mono text-[0.8125rem] text-signal transition-colors hover:border-signal"
+          className="mt-8 inline-block border-b border-research/40 pb-0.5 font-mono text-[0.8125rem] text-research transition-colors hover:border-research"
         >
           The quantization study in full &rarr;
         </Link>
       </section>
 
-      <section className="border-b border-line py-11">
+      <section className="border-b border-rule py-11">
         <h2 className="text-[1.5rem] text-ink-1">Education</h2>
         <dl className="mt-7">
           {education.map((e) => (
-            <div key={e.school} className="grid gap-x-8 gap-y-2 border-t border-line py-6 first:border-t-0 first:pt-0 lg:grid-cols-[14rem_1fr]">
+            <div key={e.school} className="grid gap-x-8 gap-y-2 border-t border-rule py-6 first:border-t-0 first:pt-0 lg:grid-cols-[14rem_1fr]">
               <dt className="font-mono text-[0.75rem] uppercase tracking-label text-ink-3">
                 {e.location}
               </dt>
@@ -130,7 +130,7 @@ export default function About() {
         </dl>
       </section>
 
-      <section className="border-b border-line py-11">
+      <section className="border-b border-rule py-11">
         <h2 className="text-[1.5rem] text-ink-1">Tools and areas</h2>
         <p className="mt-3 max-w-prose text-[0.9375rem] leading-[1.7] text-ink-3">
           A plain list. No proficiency percentages, because I have never seen one that meant
@@ -138,7 +138,7 @@ export default function About() {
         </p>
         <dl className="mt-7">
           {skills.map((g) => (
-            <div key={g.group} className="grid gap-x-8 gap-y-2 border-t border-line py-5 first:border-t-0 first:pt-0 lg:grid-cols-[14rem_1fr]">
+            <div key={g.group} className="grid gap-x-8 gap-y-2 border-t border-rule py-5 first:border-t-0 first:pt-0 lg:grid-cols-[14rem_1fr]">
               <dt className="font-mono text-[0.75rem] uppercase tracking-label text-ink-3">
                 {g.group}
               </dt>
@@ -151,7 +151,7 @@ export default function About() {
               </dd>
             </div>
           ))}
-          <div className="grid gap-x-8 gap-y-2 border-t border-line py-5 lg:grid-cols-[14rem_1fr]">
+          <div className="grid gap-x-8 gap-y-2 border-t border-rule py-5 lg:grid-cols-[14rem_1fr]">
             <dt className="font-mono text-[0.75rem] uppercase tracking-label text-ink-3">
               Languages
             </dt>
@@ -171,19 +171,19 @@ export default function About() {
         <div className="mt-5 flex flex-wrap gap-x-7 gap-y-3">
           <a
             href={`mailto:${profile.email}`}
-            className="font-mono text-[0.9375rem] text-ink-1 underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-signal"
+            className="font-mono text-[0.9375rem] text-ink-1 underline decoration-edge underline-offset-4 transition-colors hover:decoration-research"
           >
             {profile.email}
           </a>
           <a
             href={profile.linkedin}
-            className="font-mono text-[0.9375rem] text-ink-1 underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-signal"
+            className="font-mono text-[0.9375rem] text-ink-1 underline decoration-edge underline-offset-4 transition-colors hover:decoration-research"
           >
             LinkedIn
           </a>
           <a
             href={profile.github}
-            className="font-mono text-[0.9375rem] text-ink-1 underline decoration-line-strong underline-offset-4 transition-colors hover:decoration-signal"
+            className="font-mono text-[0.9375rem] text-ink-1 underline decoration-edge underline-offset-4 transition-colors hover:decoration-research"
           >
             GitHub
           </a>

@@ -1,21 +1,39 @@
 import type { Metadata } from 'next'
-import { Source_Serif_4, IBM_Plex_Mono } from 'next/font/google'
+import { Archivo, Instrument_Sans, Martian_Mono } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
-const serif = Source_Serif_4({
+/**
+ * Three faces, three jobs.
+ *
+ * Two of them are grotesques, which would normally be too close to tell apart.
+ * The separation here is WIDTH, not shape: Archivo carries a wdth axis from 62
+ * to 125 and runs wide for display, Instrument Sans sits narrow underneath it.
+ * That is why `axes: ['wdth']` is loaded rather than a fixed weight set. Pulling
+ * the axis means the width contrast is real rather than faked with tracking.
+ *
+ * Martian Mono is wide by default, which is right for a six-character station
+ * code and wrong for anything longer, so it is pulled in narrower where it runs
+ * as a label.
+ */
+const display = Archivo({
   subsets: ['latin'],
-  weight: ['400', '600'],
-  style: ['normal', 'italic'],
-  variable: '--font-source-serif',
+  axes: ['wdth'],
+  variable: '--font-display',
   display: 'swap',
 })
 
-const mono = IBM_Plex_Mono({
+const body = Instrument_Sans({
   subsets: ['latin'],
-  weight: ['400', '500'],
-  variable: '--font-plex-mono',
+  variable: '--font-body',
+  display: 'swap',
+})
+
+const mono = Martian_Mono({
+  subsets: ['latin'],
+  axes: ['wdth'],
+  variable: '--font-mono',
   display: 'swap',
 })
 
@@ -34,8 +52,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${serif.variable} ${mono.variable}`}>
-      <body className="min-h-screen bg-paper font-serif text-ink-2 antialiased">
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+    >
+      <body className="min-h-screen bg-void font-sans text-ink-2 antialiased">
         <div className="mx-auto max-w-frame px-6">
           <Nav />
           <main id="main">{children}</main>

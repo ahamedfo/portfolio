@@ -9,10 +9,10 @@ import { profile } from '@/content/profile'
  */
 export default function Nav() {
   return (
-    <header className="border-b border-line">
+    <header className="border-b border-rule">
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:border focus:border-ink-1 focus:bg-paper focus:px-3 focus:py-2 focus:font-mono focus:text-[0.8125rem] focus:text-ink-1"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:border focus:border-ink-1 focus:bg-void focus:px-3 focus:py-2 focus:font-mono focus:text-[0.8125rem] focus:text-ink-1"
       >
         Skip to content
       </a>
@@ -20,12 +20,18 @@ export default function Nav() {
       <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 py-6">
         <Link
           href="/"
-          className="font-mono text-[0.8125rem] font-medium text-ink-1 transition-colors hover:text-signal"
+          className="font-mono text-[0.8125rem] font-medium text-ink-1 transition-colors hover:text-research"
         >
           Ahamed Fofana
         </Link>
 
         <nav aria-label="Main" className="flex flex-wrap items-baseline gap-x-6 gap-y-1">
+          <Link
+            href="/#route"
+            className="font-mono text-[0.8125rem] text-ink-3 transition-colors hover:text-ink-1"
+          >
+            Route
+          </Link>
           <Link
             href="/#work"
             className="font-mono text-[0.8125rem] text-ink-3 transition-colors hover:text-ink-1"

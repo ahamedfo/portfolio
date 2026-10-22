@@ -12,13 +12,13 @@ import Figure from './Figure'
  * bar names the values that were recorded and shows none of them, because the
  * real readout was demo control-plane data.
  */
-const INK = '#1A1917'
-const INK2 = '#55514A'
-const INK3 = '#6C675C'
-const LINE = '#C9C2B1'
-const HI = '#35639C'
-const SIGNAL = '#895F16'
-const PAPER = '#F3F0E8'
+const INK = '#E8EDF5'
+const INK2 = '#A8B4C8'
+const INK3 = '#7A89A3'
+const LINE = '#2A3A55'
+const HI = '#04999B'
+const SIGNAL = '#B47819'
+const PAPER = '#0B1220'
 
 const AGENTS = [
   ['HR policy', 'policy docs'],

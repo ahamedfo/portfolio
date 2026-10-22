@@ -10,7 +10,7 @@ export default function NotFound() {
       </p>
       <Link
         href="/"
-        className="mt-6 inline-block border-b border-signal/40 pb-0.5 font-mono text-[0.8125rem] text-signal transition-colors hover:border-signal"
+        className="mt-6 inline-block border-b border-research/40 pb-0.5 font-mono text-[0.8125rem] text-research transition-colors hover:border-research"
       >
         Go home &rarr;
       </Link>
