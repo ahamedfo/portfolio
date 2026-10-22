@@ -9,6 +9,7 @@ import { secondary } from '@/content/secondary'
 import { award } from '@/content/recognition'
 import { byId } from '@/content/cases'
 import { log } from '@/content/log'
+import { teaching, earlier } from '@/content/teaching'
 
 export const dynamic = 'force-static'
 
@@ -156,6 +157,64 @@ export default function Home() {
               )}
             </RoleBlock>
           ))}
+        </div>
+      </section>
+
+      <section id="teaching" className="mt-section scroll-mt-32">
+        <h2 className="text-headline text-ink">Teaching</h2>
+        <p className="mt-3 max-w-prose text-body text-ink-muted">
+          Three years of undergraduate computer science, across three courses. It is on this
+          page rather than buried because the job is the same one I do now: explain a technical
+          thing to someone who does not have it yet, watch whether it landed, adjust.
+        </p>
+
+        <div className="mt-8">
+          {teaching.map((t) => (
+            <div
+              key={t.id}
+              className="grid gap-x-12 gap-y-4 border-t border-hairline py-8 first:border-t-0 first:pt-0 lg:grid-cols-[14rem_1fr]"
+            >
+              <div>
+                <p className="font-mono text-caption tnum text-ink-subtle">{t.period}</p>
+                <p className="eyebrow mt-1.5 text-ink-subtle">{t.institution}</p>
+              </div>
+              <div>
+                <h3 className="text-body text-ink">
+                  {t.course}
+                  <span className="text-ink-subtle"> &middot; {t.subject}</span>
+                </h3>
+                <p className="mt-2.5 max-w-prose text-body-sm leading-relaxed text-ink-muted">
+                  {t.detail}
+                </p>
+                {t.topics.length > 0 && (
+                  <ul className="mt-4 flex flex-wrap gap-x-2 gap-y-2">
+                    {t.topics.map((topic) => (
+                      <li
+                        key={topic}
+                        className="rounded-sm bg-surface-1 px-2 py-1 font-mono text-[0.6875rem] text-ink-subtle"
+                      >
+                        {topic}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10 border-t border-hairline pt-6">
+          <p className="eyebrow text-ink-subtle">Earlier</p>
+          <ul className="mt-4 space-y-3">
+            {earlier.map((e) => (
+              <li key={e.id} className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                <span className="text-body-sm text-ink">{e.org}</span>
+                <span className="text-body-sm text-ink-muted">{e.role}</span>
+                <span className="font-mono text-[0.6875rem] tnum text-ink-subtle">{e.period}</span>
+                <span className="w-full max-w-prose text-body-sm text-ink-subtle">{e.detail}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

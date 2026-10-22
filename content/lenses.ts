@@ -44,6 +44,7 @@ export const nodes: ConnectedNode[] = [
   { id: 'ransomware-intelligence', label: 'Ransomware ecosystem research', kind: 'research', where: 'New York University', href: '/research' },
   { id: 'security-enablement', label: 'Security training and partner enablement', kind: 'role', where: 'SentinelOne' },
   { id: 'delivery-reliability', label: 'Testing, release, and on-call', kind: 'role', where: 'CVS Health' },
+  { id: 'ub-teaching', label: 'Teaching assistant, three CS courses', kind: 'role', where: 'University at Buffalo' },
 ]
 
 export type Lens = {
@@ -217,6 +218,11 @@ export const lenses: Lens[] = [
         nodeId: 'security-enablement',
         reason:
           'Certification pathways and enablement material for a partner ecosystem, which is the same job as a handoff package at larger scale.',
+      },
+      {
+        nodeId: 'ub-teaching',
+        reason:
+          'Three years of review hours is the same job as a client workshop: explain it, watch whether it landed, adjust. It is the longest-running thread here.',
       },
     ],
   },

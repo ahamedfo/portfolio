@@ -76,8 +76,20 @@ export const log: LogEntry[] = [
     status: 'shipped',
     title: 'BERT sentiment classification across 28,000 posts',
     readout:
-      'Fine-tuned BERT for sentiment on roughly 28,000 social posts, and compared it against traditional machine learning on the same task.',
+      'Fine-tuned BERT for sentiment on roughly 28,000 social posts, used to separate left and right leaning perspectives on the same topics.',
     lenses: ['constraints', 'verification'],
+  },
+  {
+    id: 'ub-teaching',
+    date: '2019-09',
+    line: 'research',
+    station: 'buffalo',
+    status: 'shipped',
+    title: 'Teaching assistant, three CS courses',
+    readout:
+      'CSE 116, 220 and 191 over nearly three years. Review hours, labs, grading Scala. Explaining a technical thing to someone who does not have it yet, every week, for three years.',
+    href: '/#teaching',
+    lenses: ['delivery'],
   },
 
   // ── New York, first stint ──────────────────────────────────────────────────
@@ -237,6 +249,40 @@ export const log: LogEntry[] = [
     readout:
       'A coordinator handing work to sub-agents, demoed internally. The same coordination question the Queen Mary research measures, on a much smaller scale.',
     lenses: ['orchestration'],
+  },
+
+  {
+    id: 'promptroi',
+    date: '2026-07',
+    line: 'industry',
+    station: 'san-francisco',
+    status: 'demo',
+    title: 'PromptROI, a prompt-coaching agent',
+    readout:
+      'Built for an internal hackathon. It coaches a prompt rather than answering it. Not connected to the team award that summer; that document does not name a project.',
+    lenses: ['orchestration', 'delivery'],
+  },
+  {
+    id: 'langgraph-qc',
+    date: '2026-07',
+    line: 'industry',
+    station: 'san-francisco',
+    status: 'demo',
+    title: 'LangGraph multi-agent quality control',
+    readout:
+      'A quality-control system on watsonx Orchestrate, with agents checking work rather than only producing it.',
+    lenses: ['orchestration', 'verification'],
+  },
+  {
+    id: 'enablement-labs',
+    date: '2026-07',
+    line: 'industry',
+    station: 'san-francisco',
+    status: 'shipped',
+    title: 'Hands-on labs for non-specialists',
+    readout:
+      'Wrote labs that let people who do not build agents for a living get an agentic workflow running themselves. The teaching job, again, with a different syllabus.',
+    lenses: ['delivery'],
   },
 
   // ── New York, back again ───────────────────────────────────────────────────
