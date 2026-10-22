@@ -11,6 +11,11 @@
  *
  * To add a node: give it an id, a label, and a `where` it lives, then list its
  * id in the relevant lens `members` with a one-line reason.
+ *
+ * LABELS ARE ONE OR TWO PLAIN WORDS. They were things like "Where a person
+ * stays in the loop" and "Model behaviour under constraints", which read as
+ * jargon to anyone who does not already work on this. The `summary` under each
+ * one carries the meaning; the label only has to be clickable.
  */
 
 export type NodeKind = 'case' | 'secondary' | 'research' | 'role'
@@ -52,7 +57,7 @@ export type Lens = {
 export const lenses: Lens[] = [
   {
     id: 'verification',
-    label: 'Checks outside the model',
+    label: 'Checks',
     summary:
       'Every one of these puts something between a model’s output and whatever depends on it. The checks are different; the principle is the same.',
     members: [
@@ -85,7 +90,7 @@ export const lenses: Lens[] = [
   },
   {
     id: 'orchestration',
-    label: 'Agent orchestration',
+    label: 'Agents',
     summary:
       'Getting several agents, or one agent and several tools, to carry a workflow between them without losing the request along the way.',
     members: [
@@ -113,7 +118,7 @@ export const lenses: Lens[] = [
   },
   {
     id: 'judgment',
-    label: 'Where a person stays in the loop',
+    label: 'Human oversight',
     summary:
       'Deciding which steps a human has to keep, and being honest about when an approval prompt is not actually a control.',
     members: [
@@ -146,7 +151,7 @@ export const lenses: Lens[] = [
   },
   {
     id: 'security',
-    label: 'Security understanding',
+    label: 'Security',
     summary:
       'Where the cybersecurity background actually shows up in the agent work, and where it is still just background.',
     members: [
@@ -184,7 +189,7 @@ export const lenses: Lens[] = [
   },
   {
     id: 'delivery',
-    label: 'Delivery and communication',
+    label: 'Client work',
     summary:
       'Client-facing work: discovery, demos that run live, co-authored documentation, and material someone else can pick up.',
     members: [
@@ -217,7 +222,7 @@ export const lenses: Lens[] = [
   },
   {
     id: 'constraints',
-    label: 'Model behaviour under constraints',
+    label: 'Model limits',
     summary:
       'What changes when a model does not get ideal conditions: compressed weights, a fixed architecture, a restricted environment.',
     members: [

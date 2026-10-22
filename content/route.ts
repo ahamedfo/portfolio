@@ -32,6 +32,12 @@ export type Station = {
   end: string | null
   /** One line. What this stint was. */
   note: string
+  /**
+   * The headline for this station's screen. One sentence, display size.
+   * It is the thing a visitor reads while arriving, so it has to carry the
+   * stop on its own without the list underneath it.
+   */
+  claim: string
 }
 
 /** Chronological. The route is drawn in this order. */
@@ -43,6 +49,7 @@ export const stations: Station[] = [
     start: '2019-08',
     end: '2023-05',
     note: 'Computer science at Buffalo, and the first research work.',
+    claim: 'Where measuring a model before trusting it started.',
   },
   {
     id: 'new-york-1',
@@ -51,6 +58,7 @@ export const stations: Station[] = [
     start: '2023-06',
     end: '2026-04',
     note: 'CVS, then SentinelOne, then the cybersecurity MS at NYU.',
+    claim: 'Shipping software people depended on, then learning how it gets attacked.',
   },
   {
     id: 'san-francisco',
@@ -59,6 +67,7 @@ export const stations: Station[] = [
     start: '2026-05',
     end: '2026-08',
     note: 'The IBM summer. Where the agent work started.',
+    claim: 'Six agents, and a room watching the telemetry.',
   },
   {
     id: 'new-york-2',
@@ -67,6 +76,7 @@ export const stations: Station[] = [
     start: '2026-08',
     end: null,
     note: 'Back. IBM Client Engineering, NYU Osiris, and the research.',
+    claim: 'Agent workflows, and the checks that catch them.',
   },
 ]
 

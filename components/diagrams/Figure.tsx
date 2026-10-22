@@ -28,10 +28,10 @@ export default function Figure({
   steps: string[]
 }) {
   return (
-    <figure className="my-10 border border-rule bg-plate">
-      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-rule px-5 py-3.5">
-        <span className="font-mono text-[0.6875rem] uppercase leading-4 tracking-label text-held">{kicker}</span>
-        <span id={`${id}-title`} className="font-mono text-[0.8125rem] text-ink-2">
+    <figure className="my-10 overflow-hidden rounded-xl border border-hairline bg-surface-1">
+      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-hairline bg-surface-2 px-5 py-3.5">
+        <span className="eyebrow text-chart-held">{kicker}</span>
+        <span id={`${id}-title`} className="font-mono text-[0.8125rem] text-ink-muted">
           {title}
         </span>
       </div>
@@ -40,9 +40,9 @@ export default function Figure({
         <div className="min-w-[32rem]">{children}</div>
       </div>
 
-      <figcaption className="border-t border-rule px-5 py-4">
-        <p className="max-w-prose font-mono text-[0.8125rem] leading-[1.6] text-ink-3">{caption}</p>
-        <ol className="mt-4 max-w-prose list-decimal space-y-1.5 pl-5 text-[0.9375rem] leading-[1.6] text-ink-2">
+      <figcaption className="border-t border-hairline px-5 py-4">
+        <p className="max-w-prose font-mono text-[0.8125rem] leading-[1.6] text-ink-subtle">{caption}</p>
+        <ol className="mt-4 max-w-prose list-decimal space-y-1.5 pl-5 text-[0.9375rem] leading-[1.6] text-ink-muted">
           {steps.map((s) => (
             <li key={s}>{s}</li>
           ))}

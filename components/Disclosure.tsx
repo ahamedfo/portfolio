@@ -24,19 +24,19 @@ export default function Disclosure({
   open?: boolean
 }) {
   return (
-    <details open={open} className="group border-t border-rule py-4 first:border-t-0">
+    <details open={open} className="group border-t border-hairline py-4 first:border-t-0">
       <summary className="flex cursor-pointer list-none items-baseline gap-3 rounded-sm">
         <span
           aria-hidden
-          className="mt-[0.1rem] select-none font-mono text-[0.9375rem] leading-none text-ink-3 transition-colors group-open:text-research"
+          className="mt-[0.1rem] select-none font-mono text-[0.9375rem] leading-none text-ink-subtle transition-colors group-open:text-primary-hover"
         >
           <span className="inline-block group-open:hidden">+</span>
           <span className="hidden group-open:inline-block">&minus;</span>
         </span>
         <span className="flex-1">
-          <span className="text-[1.0625rem] text-ink-1 group-hover:text-research">{summary}</span>
+          <span className="text-[1.0625rem] text-ink group-hover:text-primary-hover">{summary}</span>
           {hint && (
-            <span className="ml-2 font-mono text-[0.75rem] text-ink-3 group-open:hidden">{hint}</span>
+            <span className="ml-2 font-mono text-[0.75rem] text-ink-subtle group-open:hidden">{hint}</span>
           )}
         </span>
       </summary>

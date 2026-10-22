@@ -22,55 +22,55 @@ export default function Research() {
   const s = quantizationStudy
 
   return (
-    <div className="pt-12">
-      <Link href="/" className="font-mono text-[0.8125rem] text-ink-3 transition-colors hover:text-ink-1">
+    <div className="mx-auto max-w-frame px-6 py-20">
+      <Link href="/" className="font-mono text-[0.8125rem] text-ink-subtle transition-colors hover:text-ink">
         &larr; Home
       </Link>
 
-      <header className="mt-9 border-b border-rule pb-10">
+      <header className="mt-9 border-b border-hairline pb-10">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <StatusTag status="Research in progress" />
-          <span className="font-mono text-[0.8125rem] text-ink-3">
+          <span className="font-mono text-[0.8125rem] text-ink-subtle">
             {s.affiliation} · {s.period}
           </span>
         </div>
 
-        <h1 className="display-wide mt-6 max-w-[30ch] text-[2rem] leading-[1.08] text-ink-1 sm:text-[2.75rem]">
+        <h1 className="mt-6 max-w-[22ch] text-display-md text-ink">
           {s.title}
         </h1>
 
         <div className="mt-7 space-y-4">
           {s.question.map((p) => (
-            <p key={p.slice(0, 24)} className="max-w-prose text-[1.0625rem] leading-[1.75] text-ink-2">
+            <p key={p.slice(0, 24)} className="max-w-prose text-[1.0625rem] leading-[1.75] text-ink-muted">
               {p}
             </p>
           ))}
         </div>
 
-        <p className="mt-6 max-w-prose font-mono text-[0.8125rem] leading-[1.6] text-ink-3">
+        <p className="mt-6 max-w-prose font-mono text-[0.8125rem] leading-[1.6] text-ink-subtle">
           Status: {s.status}.
         </p>
       </header>
 
-      <section className="border-b border-rule py-11">
-        <h2 className="text-[1.5rem] text-ink-1">Design</h2>
+      <section className="border-b border-hairline py-14">
+        <h2 className="text-headline text-ink">Design</h2>
         <dl className="mt-7 grid gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
           {s.design.map((d) => (
             <div key={d.label}>
-              <dt className="label">{d.label}</dt>
-              <dd className="mt-1.5 font-mono text-[1.5rem] tnum leading-none text-ink-1">
+              <dt className="eyebrow">{d.label}</dt>
+              <dd className="mt-1.5 font-mono text-[1.5rem] tnum leading-none text-ink">
                 {d.value}
               </dd>
-              <dd className="mt-2.5 text-[0.875rem] leading-[1.6] text-ink-3">{d.note}</dd>
+              <dd className="mt-2.5 text-[0.875rem] leading-[1.6] text-ink-subtle">{d.note}</dd>
             </div>
           ))}
         </dl>
-        <p className="mt-9 max-w-prose text-[1.0625rem] leading-[1.75] text-ink-2">{s.kuber}</p>
+        <p className="mt-9 max-w-prose text-[1.0625rem] leading-[1.75] text-ink-muted">{s.kuber}</p>
       </section>
 
-      <section className="border-b border-rule py-11">
-        <h2 className="text-[1.5rem] text-ink-1">Findings</h2>
-        <p className="mt-3 max-w-prose text-[1.0625rem] leading-[1.75] text-ink-2">
+      <section className="border-b border-hairline py-14">
+        <h2 className="text-headline text-ink">Findings</h2>
+        <p className="mt-3 max-w-prose text-[1.0625rem] leading-[1.75] text-ink-muted">
           Five results, each with the boundary of what it covers. The boundary is not a hedge. It
           is the difference between a finding and a slogan.
         </p>
@@ -80,11 +80,11 @@ export default function Research() {
             claim an order the evidence does not have. */}
         <div className="mt-10 space-y-10">
           {s.findings.map((f) => (
-            <div key={f.claim.slice(0, 24)} className="border-t border-rule pt-8 first:border-t-0 first:pt-0">
-              <h3 className="max-w-[44ch] text-[1.25rem] leading-snug text-ink-1">{f.claim}</h3>
-              <p className="mt-4 max-w-prose text-[1rem] leading-[1.75] text-ink-2">{f.detail}</p>
-              <p className="mt-4 max-w-prose border-l-2 border-held/50 pl-4 text-[0.9375rem] leading-[1.7] text-ink-2">
-                <span className="mr-2 font-mono text-[0.6875rem] uppercase leading-4 tracking-label text-held">
+            <div key={f.claim.slice(0, 24)} className="border-t border-hairline pt-8 first:border-t-0 first:pt-0">
+              <h3 className="max-w-[44ch] text-card-title text-ink">{f.claim}</h3>
+              <p className="mt-4 max-w-prose text-[1rem] leading-[1.75] text-ink-muted">{f.detail}</p>
+              <p className="mt-4 max-w-prose border-l-2 border-chart-held/50 pl-4 text-[0.9375rem] leading-[1.7] text-ink-muted">
+                <span className="mr-2 eyebrow text-chart-held">
                   Bound
                 </span>
                 {f.bound}
@@ -94,18 +94,18 @@ export default function Research() {
         </div>
       </section>
 
-      <section className="border-b border-rule py-11">
-        <h2 className="text-[1.5rem] text-ink-1">How it was kept honest</h2>
+      <section className="border-b border-hairline py-14">
+        <h2 className="text-headline text-ink">How it was kept honest</h2>
         <div className="mt-6">
           <Disclosure summary="Method and statistical boundaries" hint="5 points" open>
-            <ul className="max-w-prose list-disc space-y-3 pl-5 text-[1rem] leading-[1.7] text-ink-2">
+            <ul className="max-w-prose list-disc space-y-3 pl-5 text-[1rem] leading-[1.7] text-ink-muted">
               {s.method.map((m) => (
                 <li key={m.slice(0, 24)}>{m}</li>
               ))}
             </ul>
           </Disclosure>
           <Disclosure summary="What is still open" hint="4 points">
-            <ul className="max-w-prose list-disc space-y-3 pl-5 text-[1rem] leading-[1.7] text-ink-2">
+            <ul className="max-w-prose list-disc space-y-3 pl-5 text-[1rem] leading-[1.7] text-ink-muted">
               {s.openWork.map((m) => (
                 <li key={m.slice(0, 24)}>{m}</li>
               ))}
@@ -114,20 +114,20 @@ export default function Research() {
         </div>
       </section>
 
-      <section className="border-b border-rule py-11">
-        <h2 className="text-[1.5rem] text-ink-1">Other research</h2>
+      <section className="border-b border-hairline py-14">
+        <h2 className="text-headline text-ink">Other research</h2>
         <dl className="mt-8">
           {otherResearch.map((r) => (
-            <div key={r.id} className="border-t border-rule py-7 first:border-t-0 first:pt-0">
+            <div key={r.id} className="border-t border-hairline py-7 first:border-t-0 first:pt-0">
               <dt>
-                <span className="label">
+                <span className="eyebrow">
                   {r.affiliation} · {r.period} · {r.status}
                 </span>
-                <p className="mt-2 max-w-[46ch] text-[1.125rem] leading-snug text-ink-1">
+                <p className="mt-2 max-w-[46ch] text-[1.125rem] leading-snug text-ink">
                   {r.title}
                 </p>
               </dt>
-              <dd className="mt-3 max-w-prose text-[0.9375rem] leading-[1.7] text-ink-2">
+              <dd className="mt-3 max-w-prose text-[0.9375rem] leading-[1.7] text-ink-muted">
                 {r.question}
               </dd>
             </div>
@@ -136,20 +136,20 @@ export default function Research() {
       </section>
 
       <section className="py-11">
-        <h2 className="text-[1.5rem] text-ink-1">Earlier experiments</h2>
-        <p className="mt-3 max-w-prose text-[1.0625rem] leading-[1.75] text-ink-2">
+        <h2 className="text-headline text-ink">Earlier experiments</h2>
+        <p className="mt-3 max-w-prose text-[1.0625rem] leading-[1.75] text-ink-muted">
           Side projects and stopped experiments, kept here because a result that did not work out
           is still a result. Two of these ended in nulls and one was stopped by a rule written
           before it started.
         </p>
         <dl className="mt-8">
           {sideProjects.map((p) => (
-            <div key={p.id} className="border-t border-rule py-6 first:border-t-0 first:pt-0">
+            <div key={p.id} className="border-t border-hairline py-6 first:border-t-0 first:pt-0">
               <dt className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                <span className="label">{p.stage}</span>
-                <p className="max-w-[46ch] text-[1.0625rem] leading-snug text-ink-1">{p.title}</p>
+                <span className="eyebrow">{p.stage}</span>
+                <p className="max-w-[46ch] text-[1.0625rem] leading-snug text-ink">{p.title}</p>
               </dt>
-              <dd className="mt-2.5 max-w-prose text-[0.9375rem] leading-[1.7] text-ink-2">
+              <dd className="mt-2.5 max-w-prose text-[0.9375rem] leading-[1.7] text-ink-muted">
                 {p.body}
               </dd>
             </div>

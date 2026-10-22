@@ -71,7 +71,11 @@ export const skills: SkillGroup[] = [
   },
   {
     group: 'Certifications',
-    items: ['CISSP', 'Security+', 'AI Red Teaming Training (SAFE, 2025)'],
+    items: [
+      'CISSP (June 2025)',
+      'Security+ (January 2025)',
+      'AI Red Teaming Training (SAFE, 2025)',
+    ],
   },
 ]
 

@@ -1,8 +1,27 @@
 # How this site is put together
 
-A static Next.js site. All the words live in `content/`, all the layout lives in
-`components/` and `app/`. Adding work means editing `content/`. It should never mean
-touching a component.
+A static Next.js site built to `DESIGN.md` at the repo root, which is Linear's design
+system vendored from `voltagent/awesome-design-md`. **Read that file before changing any
+colour, type size, radius or spacing value.** Its three documented deviations are at the
+top of it.
+
+All the words live in `content/`, all the layout lives in `components/` and `app/`.
+Adding work means editing `content/`. It should never mean touching a component.
+
+## The home page is a journey, not a document
+
+Six full-height screens: an opening, one per place Ahamed lived and worked, and a closing
+screen at the end of the line. The route pins to the top as a rail; scrolling travels it.
+
+It used to be eight stacked sections rendering 2,104 words. It now renders about 415. The
+cut was structural: a screen that holds a city, a date range, one sentence, the employers
+and a list of one-line rows has nowhere to put a paragraph. Entry prose moved into a
+readout slot that fills on hover or focus.
+
+**The rail is plain anchor links.** `<a href="#san-francisco">`. That is the whole
+navigation, which is why keyboard, browser history, middle-click and the no-JavaScript
+case all work with no code for them. An IntersectionObserver only moves a highlight;
+nothing about reading or navigating depends on it running.
 
 ## The one thing you edit
 
@@ -37,25 +56,37 @@ content/
   secondary.ts    shorter client work
   research.ts     the quantization study, other research, earlier experiments
   roles.ts        employment and research positions
-  lenses.ts       capabilities, which become the route filters
-
+  lenses.ts       capabilities, which become the filters on /work
   recognition.ts  testimonials behind an approval gate, plus the award
 
 components/
-  route/
-    RouteDiagram  the diagram. the only client component on the site
-    RouteList     the same journey as text. mobile, no-JS, screen readers, print
-    Readout       the strip that hover and focus both drive
+  journey/
+    Rail          the sticky route. anchor links plus a tracked highlight
+    Station       one place, one screen
+    Opening       the first screen. a thesis and nothing else
+    Closing       end of the line. four destinations
     marks.ts      what a mark looks like, in one place
+  WorkIndex       the filterable list behind /work
   CaseCard, StatusTag, Disclosure, Testimonial, Nav, Footer
   diagrams/       Figure wrapper plus three inline SVG illustrations
 
 app/
-  page.tsx                home. the route owns the first viewport
+  page.tsx                the journey. nothing else
+  work/page.tsx           every entry, filterable
   work/[id]/page.tsx      one page per case study, generated from content/cases.ts
   research/page.tsx
-  about/page.tsx
+  about/page.tsx          roles, education, certifications, extra work, recognition
 ```
+
+## Where things live now
+
+| Route | What it is |
+|---|---|
+| `/` | the journey. opening, four places, closing |
+| `/work` | all entries, newest first, filterable by capability |
+| `/work/[id]` | the four case studies |
+| `/research` | the quantization study |
+| `/about` | the resume version, plus additional client work and recognition |
 
 ## Rules this content follows
 
@@ -86,28 +117,33 @@ floor, protan/deutan separation, normal-vision floor, and contrast against the f
 ratios are recorded beside each token in `tailwind.config.ts`. If you need a third line,
 re-run the validator rather than picking a hue that looks nice.
 
-**The route has no linear time axis.** Ten of seventeen entries land in the last two
-months. On a linear scale four empty years would eat the width and the recent work would
-crush into a few pixels. So stations get slots sized by density and left-to-right carries
-the ordering, the way every transit map works. Each station shows its own dates, so
-nothing is hidden by the distortion.
+**The rail spaces its stops evenly.** It is a diagram of the sequence, not of elapsed
+time, so the gaps carry no meaning and must not pretend to. Each screen states its own
+dates.
 
-**Each line stops where it stops.** Drawing both lines edge to edge would claim Ahamed had
-an industry job in Buffalo. `lineExtent()` exists for that reason.
+**Filter labels are one or two plain words.** They were "Where a person stays in the loop"
+and "Model behaviour under constraints", which read as jargon to anyone who does not
+already work on this. The `summary` under each filter carries the meaning; the label only
+has to be clickable.
 
-**The marks are HTML buttons over an SVG ground, not SVG children.** That buys native
-focus, hover, keyboard, touch, and semantics for free. There is no key-handling code in
-the diagram and there should not be.
+**Three values in Linear's palette fail WCAG against its own surfaces.** They were
+measured, not assumed. Lavender as text is 4.05:1, so links use `primary-hover` instead;
+the CTA fill does not lighten on hover because white on `#828fff` drops to 2.87:1; and
+`ink-tertiary` is never used for text, only as an interactive border. All three are
+recorded in `DESIGN.md`.
 
 **Hover and focus drive the same readout.** A tooltip is content that only exists while a
 pointer is held still, which means it does not exist for a keyboard or a touchscreen. The
 readout is always present and never empties.
 
-**Reduced motion zeroes delays, not just durations.** The route staggers marks with delays
-up to two seconds and uses `animation-fill-mode: both`, which holds the start state for
-the whole delay. Zeroing only the duration leaves someone who opted out of motion staring
-at an empty chart that then pops. `animation-delay: 0ms` in the reduced-motion block is
-load-bearing. This was a real bug, caught by testing it rather than assuming it.
+**Reduced motion zeroes delays, not just durations.** Anything using
+`animation-fill-mode: both` holds its start state for the whole delay, so zeroing only the
+duration leaves someone who opted out of motion looking at an empty screen that then pops.
+`animation-delay: 0ms` in the reduced-motion block is load-bearing. This was a real bug,
+caught by testing it rather than assuming it.
+
+**`scroll-padding-top` is load-bearing too.** The nav is 56px and the rail sits under it.
+Without the padding, every rail anchor lands its city name behind the bars.
 
 ## Adding a case study
 
@@ -187,6 +223,9 @@ grep -rlP "\x{2014}" content components app lib
 
 All four should print nothing.
 
-Then check by hand: set `SHOW_FIXTURES = false`, tab to a mark and confirm the readout
-updates, turn JavaScript off and confirm every station and entry is still readable, and
-load it at 390px.
+Then check by hand: set `SHOW_FIXTURES = false`, tab through a station and confirm the
+readout follows focus, turn JavaScript off and confirm the rail anchors still navigate and
+every screen still reads, and load it at 390px.
+
+The home page should render under about 450 words. If it creeps past that, something has
+been put back that belongs on `/work` or `/about`.

@@ -8,19 +8,22 @@
   }
 
   html {
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* The rail is sticky and about 64px tall. Without this, an anchor jump
+       lands the heading underneath it. */
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
   }
 
   body {
-    background-color: #0b1220;
-    color: #a8b4c8;
+    background-color: #010102;
+    color: #d0d6e0;
   }
 
   ::selection {
-    background: rgba(4, 153, 155, 0.3);
-    color: #e8edf5;
+    background: rgba(94, 106, 210, 0.35);
+    color: #f7f8f8;
   }
 
   ::-webkit-scrollbar {
@@ -28,167 +31,97 @@
     height: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: #0b1220;
+    background: #010102;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1e2a40;
+    background: #23252a;
+    border-radius: 6px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #2a3a55;
+    background: #34343a;
   }
 
-  /* On a dark field a thin outline disappears. Two pixels of pure white is the
-     one place besides the live route marker where `now` is allowed. */
+  /* DESIGN.md specifies primary-focus at 50% opacity. On a near-black canvas
+     that is not a visible indicator, so this is full-opacity primary-hover at
+     2px: same hue family, 6.6:1, actually seeable. */
   :focus-visible {
-    outline: 2px solid #ffffff;
-    outline-offset: 3px;
-  }
-
-  /* Headings wear the display face. The width axis is what separates it from
-     the body face, so it is pulled wide here and nowhere else. Tracking comes
-     back in as width goes up, otherwise wide type reads loose. */
-  h1,
-  h2,
-  h3 {
-    font-family: var(--font-display), system-ui, sans-serif;
-    font-stretch: 108%;
-    letter-spacing: -0.021em;
-  }
-
-  /* Martian Mono sits wide by default, which is right for a station code and
-     too loud for a line of navigation. Pulled in across the board; the few
-     places that want it wide ask for it. */
-  code,
-  kbd,
-  samp,
-  pre {
-    font-family: var(--font-mono), ui-monospace, monospace;
+    outline: 2px solid #828fff;
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 }
 
 @layer utilities {
-  /* Every measured value uses this so digits stay in column. */
+  /* Measured values stay in column. */
   .tnum {
     font-variant-numeric: tabular-nums;
   }
 
-  .label {
-    font-family: var(--font-mono), ui-monospace, monospace;
+  /* Eyebrows take POSITIVE tracking. The contrast against the negative-tracked
+     display is what marks them as taxonomy rather than as small headings. */
+  .eyebrow {
     font-size: 0.6875rem;
-    line-height: 1rem;
-    letter-spacing: 0.14em;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    font-stretch: 85%;
   }
 
-  /* The default for mono running as UI text rather than as a data readout. */
-  .font-mono {
-    font-stretch: 85%;
+  /* A panel. The ladder, not a border, is what lifts it. The hairline is a
+     refinement on top of the fill, never the thing doing the work. */
+  .panel {
+    background-color: #0f1011;
+    border: 1px solid #23252a;
+    border-radius: 12px;
   }
 
-  /* The one display treatment that is allowed to run really wide: the page's
-     single largest line. */
-  .display-wide {
-    font-stretch: 118%;
-    letter-spacing: -0.028em;
-  }
-
-  /* The field itself. A dot grid at 1.3:1 against the background, which is
-     deliberately below the UI-contrast floor: it is texture, not a boundary,
-     and nothing on the page depends on seeing it. */
-  .field {
-    background-image: radial-gradient(circle, #1e2a40 1px, transparent 1px);
-    background-size: 22px 22px;
-    background-position: center;
+  .panel-lift {
+    background-color: #141516;
+    border: 1px solid #34343a;
+    border-radius: 12px;
   }
 }
 
 /*
- * Motion. One sequence, once, then it stops.
+ * Motion.
  *
- * The lines draw in, then each mark rides out from its line's terminus and
- * settles above or below the line at its own position. That is the whole idea
- * made literal: something travelled the route and set this down here.
- *
- * `left` and `top` are animated rather than `transform`, because the marks are
- * positioned as percentages of a container whose width is not known at render,
- * and a percentage translate would resolve against the mark's own 22px box
- * instead. Seventeen small elements moving once for three seconds does not need
- * compositor-only properties.
- *
- * Fill mode is `both`, so during its delay a mark holds its start state, and
- * after it finishes it holds its end state. The end state is also what the
- * inline style says, so a mark that never animates is already in the right
- * place.
+ * The rail marker slides between stations as you scroll. Everything else on
+ * the journey is still. This is the whole motion budget.
  */
-@keyframes ride {
-  0% {
-    left: var(--from-left);
-    top: var(--from-top);
-    opacity: 0;
-  }
-  14% {
-    opacity: 1;
-  }
-  100% {
-    left: var(--to-left);
-    top: var(--to-top);
-    opacity: 1;
-  }
-}
-
-.route-ride {
-  animation: ride 1100ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--ride-delay, 0ms) both;
-}
-
-/* Paths carry pathLength="1", so the dash maths is the same for every line
-   whatever its real length. */
-@keyframes draw-line {
-  from {
-    stroke-dashoffset: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.route-draw {
-  animation: draw-line 900ms ease-out var(--draw-delay, 0ms) both;
-}
-
-@keyframes fade-in {
+@keyframes rise {
   from {
     opacity: 0;
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
+    transform: none;
   }
 }
 
-.route-fade {
-  animation: fade-in 600ms ease-out var(--fade-delay, 0ms) both;
+.rise {
+  animation: rise 520ms cubic-bezier(0.22, 0.61, 0.36, 1) var(--rise-delay, 0ms) both;
 }
 
 /*
- * All of the above is optional. With reduced motion requested the route is
- * already drawn and every agent is already at its station on first paint.
+ * Reduced motion.
+ *
+ * The DELAYS have to go, not just the durations. Anything using
+ * `animation-fill-mode: both` holds its start state for the whole delay, so
+ * zeroing only the duration leaves someone who opted out of motion looking at
+ * an empty screen that then pops. This was a real bug once already.
  */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-
-    /* The delays have to go too, not just the durations.
-       The route staggers its marks with delays up to about two seconds, and
-       `animation-fill-mode: both` holds the FROM state for the whole delay.
-       Zeroing only the duration therefore leaves someone who asked for no
-       motion staring at an empty chart that then pops into place, which is
-       worse than the animation they opted out of. With the delay zeroed, every
-       mark resolves to its end state on the first frame. */
     animation-delay: 0ms !important;
     transition-delay: 0ms !important;
   }

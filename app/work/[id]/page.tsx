@@ -59,38 +59,38 @@ export default function CasePage({ params }: { params: { id: string } }) {
   const checkRest = item.check.body.slice(2)
 
   return (
-    <article className="pt-12">
+    <article className="mx-auto max-w-frame px-6 py-20">
       <Link
         href="/#route"
-        className="font-mono text-[0.8125rem] text-ink-3 transition-colors hover:text-ink-1"
+        className="font-mono text-[0.8125rem] text-ink-subtle transition-colors hover:text-ink"
       >
         &larr; The route
       </Link>
 
-      <header className="mt-9 border-b border-rule pb-9">
+      <header className="mt-9 border-b border-hairline pb-9">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
           <StatusTag status={item.status} />
-          <span className="font-mono text-[0.75rem] text-ink-3">
+          <span className="font-mono text-[0.75rem] text-ink-subtle">
             {item.org} · {item.client}
             {entry ? ` · ${formatMonth(entry.date)}` : ` · ${item.period}`}
             {station ? ` · ${station.city}` : ''}
           </span>
         </div>
 
-        <h1 className="display-wide mt-5 max-w-[26ch] text-[2rem] leading-[1.08] text-ink-1 sm:text-[2.75rem]">
+        <h1 className="mt-6 max-w-[24ch] text-display-md text-ink">
           {item.title}
         </h1>
 
-        <p className="mt-5 max-w-prose text-[1.125rem] leading-[1.6] text-ink-1">{item.blurb}</p>
+        <p className="mt-5 max-w-prose text-[1.125rem] leading-[1.6] text-ink">{item.blurb}</p>
       </header>
 
-      <section className="border-b border-rule py-10">
-        <h2 className="text-[1.375rem] text-ink-1">What I built</h2>
+      <section className="border-b border-hairline py-14">
+        <h2 className="text-headline text-ink">What I built</h2>
         <ul className="mt-5 space-y-3.5">
           {item.contribution.map((c) => (
             <li
               key={c.slice(0, 24)}
-              className="max-w-prose border-l border-rule pl-4 text-[1rem] leading-[1.7] text-ink-2"
+              className="max-w-prose border-l border-hairline pl-4 text-[1rem] leading-[1.7] text-ink-muted"
             >
               {c}
             </li>
@@ -99,14 +99,14 @@ export default function CasePage({ params }: { params: { id: string } }) {
       </section>
 
       {/* The check. This is the section the site exists for. */}
-      <section className="border-b border-rule py-10">
-        <span className="label text-ink-3">The check</span>
-        <h2 className="mt-3 max-w-[36ch] text-[1.375rem] leading-snug text-ink-1">
+      <section className="border-b border-hairline py-14">
+        <span className="eyebrow text-ink-subtle">The check</span>
+        <h2 className="mt-3 max-w-[34ch] text-card-title text-ink">
           {item.check.title}
         </h2>
         <div className="mt-5 space-y-4">
           {checkLead.map((p) => (
-            <p key={p.slice(0, 24)} className="max-w-prose text-[1rem] leading-[1.75] text-ink-2">
+            <p key={p.slice(0, 24)} className="max-w-prose text-[1rem] leading-[1.75] text-ink-muted">
               {p}
             </p>
           ))}
@@ -121,7 +121,7 @@ export default function CasePage({ params }: { params: { id: string } }) {
                 {checkRest.map((p) => (
                   <p
                     key={p.slice(0, 24)}
-                    className="max-w-prose text-[1rem] leading-[1.75] text-ink-2"
+                    className="max-w-prose text-[1rem] leading-[1.75] text-ink-muted"
                   >
                     {p}
                   </p>
@@ -132,25 +132,25 @@ export default function CasePage({ params }: { params: { id: string } }) {
         )}
       </section>
 
-      <section className="border-b border-rule py-10">
-        <h2 className="text-[1.375rem] text-ink-1">Architecture</h2>
-        <p className="mt-2 max-w-prose text-[0.9375rem] leading-[1.7] text-ink-3">
+      <section className="border-b border-hairline py-14">
+        <h2 className="text-headline text-ink">Architecture</h2>
+        <p className="mt-2 max-w-prose text-[0.9375rem] leading-[1.7] text-ink-subtle">
           Open a step for what it does and why it is there.
         </p>
         <div className="mt-5">
           {item.system.map((s, i) => (
             <Disclosure key={s.step} summary={`${s.step}`} open={i === 0}>
-              <p className="max-w-prose text-[1rem] leading-[1.7] text-ink-2">{s.detail}</p>
+              <p className="max-w-prose text-[1rem] leading-[1.7] text-ink-muted">{s.detail}</p>
             </Disclosure>
           ))}
         </div>
       </section>
 
-      <section className="border-b border-rule py-10">
-        <h2 className="text-[1.375rem] text-ink-1">Outcome</h2>
+      <section className="border-b border-hairline py-14">
+        <h2 className="text-headline text-ink">Outcome</h2>
         <div className="mt-5 space-y-4">
           {item.outcome.map((p) => (
-            <p key={p.slice(0, 24)} className="max-w-prose text-[1rem] leading-[1.75] text-ink-2">
+            <p key={p.slice(0, 24)} className="max-w-prose text-[1rem] leading-[1.75] text-ink-muted">
               {p}
             </p>
           ))}
@@ -159,13 +159,13 @@ export default function CasePage({ params }: { params: { id: string } }) {
       </section>
 
       {/* Published on purpose. A bounded claim is a usable one. */}
-      <section className="border-b border-rule py-10">
-        <h2 className="text-[1.375rem] text-ink-1">What this does not establish</h2>
+      <section className="border-b border-hairline py-14">
+        <h2 className="text-headline text-ink">What this does not establish</h2>
         <ul className="mt-5 max-w-prose space-y-3">
           {item.limits.map((l) => (
             <li
               key={l.slice(0, 24)}
-              className="border-l-2 border-held/50 pl-4 text-[1rem] leading-[1.7] text-ink-2"
+              className="border-l-2 border-chart-held/50 pl-4 text-[1rem] leading-[1.7] text-ink-muted"
             >
               {l}
             </li>
@@ -173,11 +173,11 @@ export default function CasePage({ params }: { params: { id: string } }) {
         </ul>
       </section>
 
-      <section className="border-b border-rule py-10">
+      <section className="border-b border-hairline py-14">
         <Disclosure summary="Why this needed doing" hint="the background">
           <div className="space-y-4">
             {item.problem.map((p) => (
-              <p key={p.slice(0, 24)} className="max-w-prose text-[1rem] leading-[1.75] text-ink-2">
+              <p key={p.slice(0, 24)} className="max-w-prose text-[1rem] leading-[1.75] text-ink-muted">
                 {p}
               </p>
             ))}
@@ -186,7 +186,7 @@ export default function CasePage({ params }: { params: { id: string } }) {
         <Disclosure summary="Built with" hint={`${item.stack.length} things`}>
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
             {item.stack.map((s) => (
-              <li key={s} className="font-mono text-[0.8125rem] text-ink-2">
+              <li key={s} className="font-mono text-[0.8125rem] text-ink-muted">
                 {s}
               </li>
             ))}
@@ -195,13 +195,13 @@ export default function CasePage({ params }: { params: { id: string } }) {
       </section>
 
       <section className="py-10">
-        <h2 className="text-[1.375rem] text-ink-1">Connects to</h2>
+        <h2 className="text-headline text-ink">Connects to</h2>
         <ul className="mt-5 flex flex-wrap gap-x-3 gap-y-2.5">
           {related.map((l) => (
             <li key={l.id}>
               <Link
                 href="/#route"
-                className="inline-block border border-edge px-3 py-1.5 font-mono text-[0.8125rem] text-ink-2 transition-colors hover:border-ink-1 hover:text-ink-1"
+                className="inline-block border border-control px-3 py-1.5 font-mono text-[0.8125rem] text-ink-muted transition-colors hover:border-ink hover:text-ink"
               >
                 {l.label}
               </Link>
@@ -210,7 +210,7 @@ export default function CasePage({ params }: { params: { id: string } }) {
         </ul>
       </section>
 
-      <p className="max-w-prose border-t border-rule pt-8 font-mono text-[0.75rem] leading-[1.6] text-ink-3">
+      <p className="max-w-prose border-t border-hairline pt-8 font-mono text-[0.75rem] leading-[1.6] text-ink-subtle">
         Clients are described by sector rather than named. Colleagues and client staff are not
         named. Internal documents, recordings, screenshots, and identifiers are not published.
       </p>

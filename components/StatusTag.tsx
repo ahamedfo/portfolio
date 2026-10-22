@@ -1,5 +1,5 @@
 import type { EntryStatus } from '@/content/log'
-import { markClass, statusLabel } from './route/marks'
+import { markClass, statusLabel } from './journey/marks'
 
 /**
  * Status, in the same vocabulary the route uses.
@@ -19,11 +19,9 @@ const fromCaseStatus: Record<string, EntryStatus> = {
 export default function StatusTag({ status }: { status: string }) {
   const kind = fromCaseStatus[status] ?? 'research'
   return (
-    <span className="inline-flex items-center gap-2 border border-rule px-2.5 py-1">
+    <span className="inline-flex items-center gap-2 rounded-full bg-surface-2 px-2.5 py-1">
       <span aria-hidden className={markClass('research', kind)} />
-      <span className="font-mono text-[0.6875rem] uppercase tracking-label text-ink-2">
-        {status}
-      </span>
+      <span className="eyebrow text-ink-muted">{status}</span>
     </span>
   )
 }

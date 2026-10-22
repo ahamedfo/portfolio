@@ -8,13 +8,13 @@ import Figure from './Figure'
  * made up to close cleanly on three sides and fail on the fourth, because the
  * failure is the thing worth drawing.
  */
-const INK = '#E8EDF5'
-const INK2 = '#A8B4C8'
-const INK3 = '#7A89A3'
-const LINE = '#2A3A55'
+const INK = '#f7f8f8'
+const INK2 = '#d0d6e0'
+const INK3 = '#8a8f98'
+const LINE = '#34343a'
 const LO = '#CF5E53'
 const HI = '#04999B'
-const PAPER = '#0B1220'
+const PAPER = '#010102'
 
 export default function DocumentGisDiagram() {
   return (

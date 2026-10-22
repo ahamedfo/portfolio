@@ -1,38 +1,29 @@
 import type { Metadata } from 'next'
-import { Archivo, Instrument_Sans, Martian_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
 /**
- * Three faces, three jobs.
+ * One family from display to body.
  *
- * Two of them are grotesques, which would normally be too close to tell apart.
- * The separation here is WIDTH, not shape: Archivo carries a wdth axis from 62
- * to 125 and runs wide for display, Instrument Sans sits narrow underneath it.
- * That is why `axes: ['wdth']` is loaded rather than a fixed weight set. Pulling
- * the axis means the width contrast is real rather than faked with tracking.
+ * DESIGN.md names Inter at 500/600/700 as the closest free substitute for
+ * Linear's own cut, so that is what this is rather than a pair of faces doing
+ * a contrast trick. The hierarchy is carried by size and by aggressively
+ * negative tracking on display, not by swapping families.
  *
- * Martian Mono is wide by default, which is right for a six-character station
- * code and wrong for anything longer, so it is pulled in narrower where it runs
- * as a label.
+ * JetBrains Mono is the documented mono substitute and is scoped to data
+ * readouts. The typography principles are explicit that mono stays out of
+ * marketing chrome.
  */
-const display = Archivo({
+const sans = Inter({
   subsets: ['latin'],
-  axes: ['wdth'],
-  variable: '--font-display',
+  variable: '--font-sans',
   display: 'swap',
 })
 
-const body = Instrument_Sans({
+const mono = JetBrains_Mono({
   subsets: ['latin'],
-  variable: '--font-body',
-  display: 'swap',
-})
-
-const mono = Martian_Mono({
-  subsets: ['latin'],
-  axes: ['wdth'],
   variable: '--font-mono',
   display: 'swap',
 })
@@ -54,14 +45,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable}`}
+      className={`${sans.variable} ${mono.variable}`}
     >
-      <body className="min-h-screen bg-void font-sans text-ink-2 antialiased">
-        <div className="mx-auto max-w-frame px-6">
-          <Nav />
-          <main id="main">{children}</main>
-          <Footer />
-        </div>
+      <body className="min-h-screen bg-canvas font-sans text-ink-muted antialiased">
+        <Nav />
+        <main id="main">{children}</main>
+        <Footer />
       </body>
     </html>
   )

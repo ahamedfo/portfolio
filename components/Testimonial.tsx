@@ -34,13 +34,13 @@ export default function Testimonial({ caseId }: { caseId: string }) {
       {items.map((t) => (
         <figure
           key={t.id}
-          className={`border-l-2 pl-6 ${t.kind === 'fixture' ? 'border-dashed border-rule' : 'border-research/40'}`}
+          className={`border-l-2 pl-6 ${t.kind === 'fixture' ? 'border-dashed border-hairline' : 'border-primary/40'}`}
         >
-          <span className="label">{kindLabel[t.kind]}</span>
-          <blockquote className="mt-3 max-w-prose text-[1.0625rem] italic leading-[1.7] text-ink-1">
+          <span className="eyebrow">{kindLabel[t.kind]}</span>
+          <blockquote className="mt-3 max-w-prose text-[1.0625rem] italic leading-[1.7] text-ink">
             {t.quote}
           </blockquote>
-          <figcaption className="mt-3 font-mono text-[0.8125rem] text-ink-3">
+          <figcaption className="mt-3 font-mono text-[0.8125rem] text-ink-subtle">
             {t.attribution}
           </figcaption>
         </figure>
