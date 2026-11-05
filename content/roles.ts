@@ -46,8 +46,8 @@ export const roles: Role[] = [
     org: 'Queen Mary University of London',
     title: 'Graduate Research Assistant, Multi-Agent Orchestration',
     location: 'Remote',
-    period: 'January 2026 to present',
-    start: '2026-01-01',
+    period: 'May 2026 to present',
+    start: '2026-05-01',
     kind: 'research',
     current: true,
     bullets: [

@@ -52,7 +52,7 @@ export const researchAreas: ResearchArea[] = [
     title: 'What compression does to a team of agents',
     line: 'Everyone evaluates agents at full precision. Everyone deploys them compressed. I measured the gap.',
     affiliation: 'Queen Mary University of London',
-    period: 'January 2026 to present',
+    period: 'May 2026 to present',
     status: 'Manuscript drafted',
     stat: { value: '87', label: 'configurations' },
     href: '/research/quantization',
@@ -102,7 +102,7 @@ export const quantizationStudy = {
   id: 'quantized-agents',
   title: 'What does compressing a model do to a team of agents?',
   affiliation: 'Queen Mary University of London',
-  period: 'January 2026 to present',
+  period: 'May 2026 to present',
   status: 'Manuscript drafted, not submitted',
   lenses: ['orchestration', 'verification', 'constraints'],
 
